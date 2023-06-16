@@ -1,1 +1,1 @@
-cask "$1"
+cask "epic-games"

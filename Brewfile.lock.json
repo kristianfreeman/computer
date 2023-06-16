@@ -644,6 +644,12 @@
         "options": {
           "full_name": "steam"
         }
+      },
+      "epic-games": {
+        "version": "15.5.0",
+        "options": {
+          "full_name": "epic-games"
+        }
       }
     }
   },
