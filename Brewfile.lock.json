@@ -580,7 +580,7 @@
         }
       },
       "visual-studio-code": {
-        "version": "1.79.1",
+        "version": "1.79.2",
         "options": {
           "full_name": "visual-studio-code"
         }
@@ -613,6 +613,12 @@
         "version": "1.42.0",
         "options": {
           "full_name": "tailscale"
+        }
+      },
+      "arq": {
+        "version": "7.22",
+        "options": {
+          "full_name": "arq"
         }
       }
     }
