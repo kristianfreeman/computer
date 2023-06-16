@@ -1,0 +1,2 @@
+sort Brewfile > Newfile
+mv Newfile Brewfile

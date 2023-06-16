@@ -1,0 +1,4 @@
+echo 'brew "$1"' > Brewfile
+./sort
+./install
+./commit
