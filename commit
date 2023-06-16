@@ -1,0 +1,3 @@
+now=$(date +%s)
+git add .
+git commit -m "$now"

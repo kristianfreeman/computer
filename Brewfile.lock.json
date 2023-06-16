@@ -550,7 +550,7 @@
         }
       },
       "raycast": {
-        "version": "1.53.3",
+        "version": "1.53.4",
         "options": {
           "full_name": "raycast"
         }
@@ -620,13 +620,37 @@
         "options": {
           "full_name": "arq"
         }
+      },
+      "blender": {
+        "version": "3.5.1",
+        "options": {
+          "full_name": "blender"
+        }
+      },
+      "unity-hub": {
+        "version": "3.4.2",
+        "options": {
+          "full_name": "unity-hub"
+        }
+      },
+      "keyboard-maestro": {
+        "version": "10.2,1020",
+        "options": {
+          "full_name": "keyboard-maestro"
+        }
+      },
+      "steam": {
+        "version": "4.0",
+        "options": {
+          "full_name": "steam"
+        }
       }
     }
   },
   "system": {
     "macos": {
       "ventura": {
-        "HOMEBREW_VERSION": "4.0.22",
+        "HOMEBREW_VERSION": "4.0.23",
         "HOMEBREW_PREFIX": "/opt/homebrew",
         "Homebrew/homebrew-core": "api",
         "CLT": "14.3.1.0.1.1683849156",
