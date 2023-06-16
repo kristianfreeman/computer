@@ -1,1 +1,1 @@
-cask "epic-games"
+brew "gh"
