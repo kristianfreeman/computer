@@ -1,1 +1,2 @@
+echo "Installing new package"
 brew bundle

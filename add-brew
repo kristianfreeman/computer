@@ -1,3 +1,4 @@
+echo "Adding $1 to Brewfile"
 echo "brew \"$1\"" >> Brewfile
 ./sort-brewfile
 ./install

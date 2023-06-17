@@ -1,3 +1,4 @@
+echo "Running git commit and push"
 now=$(date +%s)
 git add .
 git commit -m "$now"
