@@ -7,8 +7,8 @@ my computer setup, mostly using brewfile
 ### install new brews/casks
 
 ```sh
-$ ./brew brew-name
-$ ./cask cask-name
+$ ./add-brew brew-name
+$ ./add-cask cask-name
 ```
 
 ## file management
