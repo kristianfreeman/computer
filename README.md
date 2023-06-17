@@ -14,7 +14,7 @@ $ ./cask cask-name
 ## file management
 
 ```sh
-$ ./sort    # sort Brewfile
-$ ./install # install packages
-$ ./commit  # generate new commit based on timestamp
+$ ./sort-brewfile # sort Brewfile
+$ ./install       # install packages
+$ ./commit        # generate new commit based on timestamp
 ```

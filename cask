@@ -1,4 +1,4 @@
 echo "cask \"$1\"" >> Brewfile
-./sort
+./sort-brewfile
 ./install
 ./commit
