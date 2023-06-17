@@ -650,6 +650,12 @@
         "options": {
           "full_name": "epic-games"
         }
+      },
+      "calibre": {
+        "version": "6.21.0",
+        "options": {
+          "full_name": "calibre"
+        }
       }
     }
   },
