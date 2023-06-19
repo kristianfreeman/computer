@@ -1,4 +1,5 @@
 brew "ffmpeg"
+brew "hugo"
 brew "imagemagick"
 brew "jq"
 brew "mkvtoolnix"
