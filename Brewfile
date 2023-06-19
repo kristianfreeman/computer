@@ -1,4 +1,5 @@
 brew "ffmpeg"
+brew "gnu-sed"
 brew "hugo"
 brew "imagemagick"
 brew "jq"
