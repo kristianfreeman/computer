@@ -805,6 +805,12 @@
         "options": {
           "full_name": "sonos"
         }
+      },
+      "battle-net": {
+        "version": "1.18.5.3106",
+        "options": {
+          "full_name": "battle-net"
+        }
       }
     }
   },
