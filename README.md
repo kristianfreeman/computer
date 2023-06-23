@@ -1,6 +1,10 @@
 # computer
 
-my computer setup, mostly using brewfile
+my computer setup, mostly using brewfile.
+
+feel free to fork this and swap out the `Brewfile` for your own setup!
+
+**[read more about how it works with my blog post](https://codewithkristian.com/brewfile/).**
 
 ## usage
 
