@@ -863,6 +863,12 @@
         "options": {
           "full_name": "google-chrome"
         }
+      },
+      "slack": {
+        "version": "4.33.73",
+        "options": {
+          "full_name": "slack"
+        }
       }
     }
   },
