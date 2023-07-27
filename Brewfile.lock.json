@@ -875,6 +875,12 @@
         "options": {
           "full_name": "recut"
         }
+      },
+      "elgato-control-center": {
+        "version": "1.4.2.10504",
+        "options": {
+          "full_name": "elgato-control-center"
+        }
       }
     }
   },
