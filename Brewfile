@@ -1,3 +1,4 @@
+brew "bun"
 brew "ffmpeg"
 brew "gnu-sed"
 brew "hugo"
