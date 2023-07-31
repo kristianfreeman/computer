@@ -1,0 +1,5 @@
+echo "Adding tap $1 to Brewfile"
+echo "tap \"$1\"" >> Brewfile
+./sort-brewfile
+./install
+./commit
