@@ -677,7 +677,7 @@
         }
       },
       "bun": {
-        "version": "0.7.1",
+        "version": "0.7.2",
         "bottle": false
       },
       "watch": {
@@ -739,7 +739,7 @@
         }
       },
       "docker": {
-        "version": "4.21.1,114176",
+        "version": "4.22.0,117440",
         "options": {
           "full_name": "docker"
         }
@@ -769,7 +769,7 @@
         }
       },
       "raycast": {
-        "version": "1.56.1",
+        "version": "1.56.3",
         "options": {
           "full_name": "raycast"
         }
@@ -781,13 +781,13 @@
         }
       },
       "plexamp": {
-        "version": "4.8.1",
+        "version": "4.8.2",
         "options": {
           "full_name": "plexamp"
         }
       },
       "spotify": {
-        "version": "1.2.16.947,cfbaa410,105",
+        "version": "1.2.17.834,26ee1129,640",
         "options": {
           "full_name": "spotify"
         }
@@ -799,7 +799,7 @@
         }
       },
       "visual-studio-code": {
-        "version": "1.80.2",
+        "version": "1.81.0",
         "options": {
           "full_name": "visual-studio-code"
         }
@@ -871,7 +871,7 @@
         }
       },
       "calibre": {
-        "version": "6.23.0",
+        "version": "6.24.0",
         "options": {
           "full_name": "calibre"
         }
@@ -907,7 +907,7 @@
         }
       },
       "google-chrome": {
-        "version": "115.0.5790.114",
+        "version": "115.0.5790.170",
         "options": {
           "full_name": "google-chrome"
         }
@@ -935,11 +935,17 @@
         "options": {
           "full_name": "loom"
         }
+      },
+      "aethersx2": {
+        "version": "1.5-3939",
+        "options": {
+          "full_name": "aethersx2"
+        }
       }
     },
     "tap": {
       "oven-sh/bun": {
-        "revision": "2b1ea2fca323e4ba35b688cd12380585f2eb97c2"
+        "revision": "c807f72033fea136748fd3b38e5625fbf9c2d850"
       }
     }
   },
