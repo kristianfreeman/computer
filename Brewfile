@@ -1,6 +1,7 @@
 brew "bun"
 brew "ffmpeg"
 brew "gnu-sed"
+brew "handbrake"
 brew "hugo"
 brew "imagemagick"
 brew "jq"
