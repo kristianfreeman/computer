@@ -1276,6 +1276,9 @@
     "tap": {
       "oven-sh/bun": {
         "revision": "a442470c77bfc5aaa6d9a2d608d40f08854a28d8"
+      },
+      "heroku/brew": {
+        "revision": "3282356a489e6000344f176cd7dac0eb9565bb68"
       }
     }
   },
