@@ -1265,6 +1265,12 @@
         "options": {
           "full_name": "pgadmin4"
         }
+      },
+      "ngrok": {
+        "version": "3.3.5,gdMJFDtw8of,a",
+        "options": {
+          "full_name": "ngrok"
+        }
       }
     },
     "tap": {
