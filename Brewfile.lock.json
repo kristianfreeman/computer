@@ -1017,6 +1017,10 @@
             }
           }
         }
+      },
+      "heroku": {
+        "version": "8.4.3",
+        "bottle": false
       }
     },
     "cask": {
