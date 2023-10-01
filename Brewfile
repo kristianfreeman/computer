@@ -1,5 +1,6 @@
 brew "bun"
 brew "chruby"
+brew "entr"
 brew "ffmpeg"
 brew "gnu-sed"
 brew "handbrake"
