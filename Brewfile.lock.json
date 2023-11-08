@@ -1049,6 +1049,10 @@
             }
           }
         }
+      },
+      "hashicorp/tap/terraform": {
+        "version": "1.6.3",
+        "bottle": false
       }
     },
     "cask": {
