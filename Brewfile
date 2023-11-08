@@ -1,4 +1,5 @@
 brew "aria2"
+brew "awscli"
 brew "bun"
 brew "chruby"
 brew "entr"
