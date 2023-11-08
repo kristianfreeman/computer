@@ -1,5 +1,4 @@
 brew "aria2"
-brew "aria2"
 brew "bun"
 brew "chruby"
 brew "entr"
