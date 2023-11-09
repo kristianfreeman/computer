@@ -1053,6 +1053,50 @@
       "hashicorp/tap/terraform": {
         "version": "1.6.3",
         "bottle": false
+      },
+      "awscli": {
+        "version": "2.13.33",
+        "bottle": {
+          "rebuild": 0,
+          "root_url": "https://ghcr.io/v2/homebrew/core",
+          "files": {
+            "arm64_sonoma": {
+              "cellar": ":any",
+              "url": "https://ghcr.io/v2/homebrew/core/awscli/blobs/sha256:9fbb51412fcbebe1385351d5a6d6f5ee6bf71a51b1a7aac3442c4ec1eac1c391",
+              "sha256": "9fbb51412fcbebe1385351d5a6d6f5ee6bf71a51b1a7aac3442c4ec1eac1c391"
+            },
+            "arm64_ventura": {
+              "cellar": ":any",
+              "url": "https://ghcr.io/v2/homebrew/core/awscli/blobs/sha256:856ca690119e633b65532e6a75575020c6715f7a1ea77a457cbd44ef8be74be8",
+              "sha256": "856ca690119e633b65532e6a75575020c6715f7a1ea77a457cbd44ef8be74be8"
+            },
+            "arm64_monterey": {
+              "cellar": ":any",
+              "url": "https://ghcr.io/v2/homebrew/core/awscli/blobs/sha256:34ec811b35e27cdb72ae67c184826ca22dd16187be074847c611161231d4e2fa",
+              "sha256": "34ec811b35e27cdb72ae67c184826ca22dd16187be074847c611161231d4e2fa"
+            },
+            "sonoma": {
+              "cellar": ":any",
+              "url": "https://ghcr.io/v2/homebrew/core/awscli/blobs/sha256:6bbcd7b60c85b8ec50fffd95e6dd404b512d1c78e76fa17c20be20a84a6728bf",
+              "sha256": "6bbcd7b60c85b8ec50fffd95e6dd404b512d1c78e76fa17c20be20a84a6728bf"
+            },
+            "ventura": {
+              "cellar": ":any",
+              "url": "https://ghcr.io/v2/homebrew/core/awscli/blobs/sha256:67ed04ed151723afb2afb6206d28034b83091cc9e0570695999bf7af4edf38e2",
+              "sha256": "67ed04ed151723afb2afb6206d28034b83091cc9e0570695999bf7af4edf38e2"
+            },
+            "monterey": {
+              "cellar": ":any",
+              "url": "https://ghcr.io/v2/homebrew/core/awscli/blobs/sha256:e952a689f2bc3f72f0151b86474a87a0739bccca863464802404ce063cf0ac1c",
+              "sha256": "e952a689f2bc3f72f0151b86474a87a0739bccca863464802404ce063cf0ac1c"
+            },
+            "x86_64_linux": {
+              "cellar": ":any_skip_relocation",
+              "url": "https://ghcr.io/v2/homebrew/core/awscli/blobs/sha256:adc34fa9e64ae4d45989c488765f0eacb9557dce12a9a4b5885868327df959d7",
+              "sha256": "adc34fa9e64ae4d45989c488765f0eacb9557dce12a9a4b5885868327df959d7"
+            }
+          }
+        }
       }
     },
     "cask": {
@@ -1261,7 +1305,7 @@
         }
       },
       "loom": {
-        "version": "0.183.3",
+        "version": "0.184.1",
         "options": {
           "full_name": "loom"
         }
@@ -1285,7 +1329,7 @@
         }
       },
       "audacity": {
-        "version": "3.4.0",
+        "version": "3.4.1",
         "options": {
           "full_name": "audacity"
         }
@@ -1318,6 +1362,12 @@
         "version": "1.4.16",
         "options": {
           "full_name": "obsidian"
+        }
+      },
+      "cleanshot": {
+        "version": "4.6.1",
+        "options": {
+          "full_name": "cleanshot"
         }
       }
     },
