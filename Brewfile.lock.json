@@ -1386,6 +1386,9 @@
       },
       "hashicorp/tap": {
         "revision": "b72770ac70fa277d1e36b231e478f4c06c6416d8"
+      },
+      "homebrew/cask-fonts": {
+        "revision": "45d77e5752ea310e1974d161fb05e44d7706d1c7"
       }
     }
   },
