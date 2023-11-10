@@ -1375,6 +1375,12 @@
         "options": {
           "full_name": "imageoptim"
         }
+      },
+      "font-monaspace": {
+        "version": "1.000",
+        "options": {
+          "full_name": "font-monaspace"
+        }
       }
     },
     "tap": {
