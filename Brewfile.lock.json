@@ -144,45 +144,45 @@
         }
       },
       "ffmpeg": {
-        "version": "6.0_1",
+        "version": "6.0_2",
         "bottle": {
-          "rebuild": 2,
+          "rebuild": 0,
           "root_url": "https://ghcr.io/v2/homebrew/core",
           "files": {
             "arm64_sonoma": {
               "cellar": "/opt/homebrew/Cellar",
-              "url": "https://ghcr.io/v2/homebrew/core/ffmpeg/blobs/sha256:42d52253402650e0213379f160c55d84b65dd00f6399f164df05f114c74ebcc4",
-              "sha256": "42d52253402650e0213379f160c55d84b65dd00f6399f164df05f114c74ebcc4"
+              "url": "https://ghcr.io/v2/homebrew/core/ffmpeg/blobs/sha256:96adc7d2fdfcfb412631f85017a914dc97547d02e06db1ed84c0a77b33b1361a",
+              "sha256": "96adc7d2fdfcfb412631f85017a914dc97547d02e06db1ed84c0a77b33b1361a"
             },
             "arm64_ventura": {
               "cellar": "/opt/homebrew/Cellar",
-              "url": "https://ghcr.io/v2/homebrew/core/ffmpeg/blobs/sha256:b24e520a37513ec46162a1c291af1344ff25a4ff9107065a487714758f4e0ea4",
-              "sha256": "b24e520a37513ec46162a1c291af1344ff25a4ff9107065a487714758f4e0ea4"
+              "url": "https://ghcr.io/v2/homebrew/core/ffmpeg/blobs/sha256:1369ed7bbc300c5e310e51f6281e188fb212dd4dbd26f2265fe16f9bfe514aca",
+              "sha256": "1369ed7bbc300c5e310e51f6281e188fb212dd4dbd26f2265fe16f9bfe514aca"
             },
             "arm64_monterey": {
               "cellar": "/opt/homebrew/Cellar",
-              "url": "https://ghcr.io/v2/homebrew/core/ffmpeg/blobs/sha256:42405b8904eb0a1dda935b538a076b6e30b9a736a54f43471b99bb86f3e4e364",
-              "sha256": "42405b8904eb0a1dda935b538a076b6e30b9a736a54f43471b99bb86f3e4e364"
+              "url": "https://ghcr.io/v2/homebrew/core/ffmpeg/blobs/sha256:b323651df6dc1f0fe14ce1248de639b93e9bbd5328912897c5933b0014cad6e9",
+              "sha256": "b323651df6dc1f0fe14ce1248de639b93e9bbd5328912897c5933b0014cad6e9"
             },
             "sonoma": {
               "cellar": "/usr/local/Cellar",
-              "url": "https://ghcr.io/v2/homebrew/core/ffmpeg/blobs/sha256:f03703c198cdc39583129e38d57abd3e19aa541e551fefcacfdfe7a566ed6776",
-              "sha256": "f03703c198cdc39583129e38d57abd3e19aa541e551fefcacfdfe7a566ed6776"
+              "url": "https://ghcr.io/v2/homebrew/core/ffmpeg/blobs/sha256:e17fbb073d25683985e3f382a85419d220d54c931b9ae3e5192b91daa88571ac",
+              "sha256": "e17fbb073d25683985e3f382a85419d220d54c931b9ae3e5192b91daa88571ac"
             },
             "ventura": {
               "cellar": "/usr/local/Cellar",
-              "url": "https://ghcr.io/v2/homebrew/core/ffmpeg/blobs/sha256:58ebcf43e522105745c3d406e01ce8a65007996544198a6691c0011cb90152e1",
-              "sha256": "58ebcf43e522105745c3d406e01ce8a65007996544198a6691c0011cb90152e1"
+              "url": "https://ghcr.io/v2/homebrew/core/ffmpeg/blobs/sha256:2c8d36f30ae9bc1c8ce1d33cb44ac3f2f6a5ae34ac6b8ab48085645bab020aaf",
+              "sha256": "2c8d36f30ae9bc1c8ce1d33cb44ac3f2f6a5ae34ac6b8ab48085645bab020aaf"
             },
             "monterey": {
               "cellar": "/usr/local/Cellar",
-              "url": "https://ghcr.io/v2/homebrew/core/ffmpeg/blobs/sha256:541c4febd795e1bbb8d76087f58b9a83f8ef8cc65020050530d582b45956ceb9",
-              "sha256": "541c4febd795e1bbb8d76087f58b9a83f8ef8cc65020050530d582b45956ceb9"
+              "url": "https://ghcr.io/v2/homebrew/core/ffmpeg/blobs/sha256:cf80f268042144cd9d126d1860d34e892d5771ace019d7ec2d3fb6e4f09042a1",
+              "sha256": "cf80f268042144cd9d126d1860d34e892d5771ace019d7ec2d3fb6e4f09042a1"
             },
             "x86_64_linux": {
               "cellar": "/home/linuxbrew/.linuxbrew/Cellar",
-              "url": "https://ghcr.io/v2/homebrew/core/ffmpeg/blobs/sha256:e970046eb88d3e8ad157063599ed3284fa2ed8b8289f58fa1d96e0bd1798f9d4",
-              "sha256": "e970046eb88d3e8ad157063599ed3284fa2ed8b8289f58fa1d96e0bd1798f9d4"
+              "url": "https://ghcr.io/v2/homebrew/core/ffmpeg/blobs/sha256:13d6196b91e6811625b48fb8b658a1688696e667eab46e8511f4afd2a2d9c982",
+              "sha256": "13d6196b91e6811625b48fb8b658a1688696e667eab46e8511f4afd2a2d9c982"
             }
           }
         }
@@ -1153,13 +1153,13 @@
         }
       },
       "1password": {
-        "version": "8.10.20",
+        "version": "8.10.22",
         "options": {
           "full_name": "1password"
         }
       },
       "google-drive": {
-        "version": "84.0.11",
+        "version": "84.0.13",
         "options": {
           "full_name": "google-drive"
         }
@@ -1195,7 +1195,7 @@
         }
       },
       "discord": {
-        "version": "0.0.287",
+        "version": "0.0.289",
         "options": {
           "full_name": "discord"
         }
@@ -1309,7 +1309,7 @@
         }
       },
       "google-chrome": {
-        "version": "120.0.6099.62",
+        "version": "120.0.6099.109",
         "options": {
           "full_name": "google-chrome"
         }
@@ -1333,7 +1333,7 @@
         }
       },
       "loom": {
-        "version": "0.191.3",
+        "version": "0.192.3",
         "options": {
           "full_name": "loom"
         }
@@ -1351,7 +1351,7 @@
         }
       },
       "notion": {
-        "version": "3.0.0",
+        "version": "3.1.0",
         "options": {
           "full_name": "notion"
         }
@@ -1415,6 +1415,12 @@
         "options": {
           "full_name": "whatsapp"
         }
+      },
+      "musicbrainz-picard": {
+        "version": "2.10",
+        "options": {
+          "full_name": "musicbrainz-picard"
+        }
       }
     },
     "tap": {
@@ -1425,7 +1431,7 @@
         "revision": "26afdc76a586ed3ed1a38f41a72133e2ff3a9a05"
       },
       "hashicorp/tap": {
-        "revision": "c4496abc398b1a4ca14d9738b1129f1103341703"
+        "revision": "0e115f0e732b2a1aa2dc68607f68f995052129bc"
       },
       "homebrew/cask-fonts": {
         "revision": "a5baee188b8f72d8d14ce723965554c8b38f515a"
