@@ -1421,6 +1421,12 @@
         "options": {
           "full_name": "musicbrainz-picard"
         }
+      },
+      "filebot": {
+        "version": "5.1.2",
+        "options": {
+          "full_name": "filebot"
+        }
       }
     },
     "tap": {
