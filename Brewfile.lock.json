@@ -1159,7 +1159,7 @@
         }
       },
       "google-drive": {
-        "version": "84.0.13",
+        "version": "85.0.22",
         "options": {
           "full_name": "google-drive"
         }
@@ -1171,7 +1171,7 @@
         }
       },
       "raycast": {
-        "version": "1.63.0",
+        "version": "1.64.0",
         "options": {
           "full_name": "raycast"
         }
@@ -1426,6 +1426,12 @@
         "version": "5.1.2",
         "options": {
           "full_name": "filebot"
+        }
+      },
+      "cyberduck": {
+        "version": "8.7.1,40770",
+        "options": {
+          "full_name": "cyberduck"
         }
       }
     },
