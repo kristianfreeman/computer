@@ -1,2 +1,2 @@
 echo "Installing new package"
-brew bundle
+brew bundle "$@"
