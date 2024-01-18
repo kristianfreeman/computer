@@ -1,3 +1,4 @@
+brew "abook"
 brew "aria2"
 brew "awscli"
 brew "bun"
