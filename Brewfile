@@ -1,4 +1,5 @@
 brew "abook"
+brew "ansible"
 brew "aria2"
 brew "awscli"
 brew "bun"
