@@ -1,3 +1,3 @@
 echo "Sorting Brewfile"
-sort Brewfile > Newfile
+sort -u Brewfile > Newfile
 mv Newfile Brewfile
