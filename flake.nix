@@ -163,22 +163,22 @@
       #####################
       home.file.".config/btop" = {
         source = ./btop;
-	recursive = true;
+        recursive = true;
       };
 
       home.file.".config/kitty" = {
         source = ./kitty;
-	recursive = true;
+        recursive = true;
       };
 
       home.file.".config/nvim" = {
         source = ./nvim;
-	recursive = true;
+        recursive = true;
       };
 
       home.file.".config/zellij" = {
         source = ./zellij;
-	recursive = true;
+        recursive = true;
       };
 
       programs.git = {
@@ -195,8 +195,8 @@
       programs.zsh = {
         enable = true;
         shellAliases = {
-	  vi = "nvim";
-	  vim = "nvim";
+          vi = "nvim";
+          vim = "nvim";
           switch = "darwin-rebuild switch --flake ~/.config/nix";
         };
       };
@@ -213,7 +213,7 @@
         home-manager.darwinModules.home-manager {
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
-	  home-manager.verbose = true;
+          home-manager.verbose = true;
           home-manager.users.kristian = homeconfig;
         }
       ];
