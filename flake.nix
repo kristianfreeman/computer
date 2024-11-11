@@ -95,6 +95,7 @@
         casks = [ 
           "1password" 
           "boltai"
+          "discord"
           "flux"
           "font-atkinson-hyperlegible"
           "font-jetbrains-mono-nerd-font"
