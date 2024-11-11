@@ -38,67 +38,7 @@
   outputs = inputs @ { self, nix-darwin, nixpkgs, nix-homebrew, homebrew-core, homebrew-cask, home-manager }:
 
   let
-    commonHomeConfig = { pkgs, ... }: {
-      home.stateVersion = "23.05";
-      programs.home-manager.enable = true;
-
-      home.packages = with pkgs; [];
-      home.sessionVariables = {
-        EDITOR = "vim";
-      };
-
-      # Sync config folders
-      #####################
-      home.file.".config/btop" = {
-        source = ./btop;
-        recursive = true;
-      };
-
-      home.file.".config/kitty" = {
-        source = ./kitty;
-        recursive = true;
-      };
-
-      home.file.".config/nvim" = {
-        source = ./nvim;
-        recursive = true;
-      };
-
-      home.file.".config/zellij" = {
-        source = ./zellij;
-        recursive = true;
-      };
-
-      programs.git = {
-        enable = true;
-        userName = "Kristian Freeman";
-        userEmail = "kristian@kristianfreeman.com";
-        ignores = [ ".DS_Store" ];
-        extraConfig = {
-          init.defaultBranch = "main";
-          push.autoSetupRemote = true;
-        };
-      };
-
-      programs.zsh = {
-        enable = true;
-        initExtra = "source ${./zsh/includes.zsh}";
-        shellAliases = {
-          vi = "nvim";
-          vim = "nvim";
-          switch = "darwin-rebuild switch --flake ~/.config/nix";
-        };
-        oh-my-zsh = {
-          enable = true;
-          theme = "sunaku";
-          plugins = [
-            "chruby"
-            "fzf"
-            "zoxide"
-          ];
-        };
-      };
-    };
+    commonHomeConfig = import ./home/common.nix;
 
     darwinConfiguration = { pkgs, ... }: {
       # Default settings from nix-darwin.
@@ -214,32 +154,56 @@
         };
       };
     };
+
     nixosConfiguration = { config, pkgs, ... }: {
       imports = [
+        ./hosts/sauron/hardware-configuration.nix
       ];
 
       nixpkgs.system = "x86_64-linux";
       users.users.kristian = {
         isNormalUser = true;
         home = "/home/kristian";
-        shell = pkgs.zsh;
-        extraGroups = [ "wheel" ];
+        description = "Kristian Freeman";
+        extraGroups = [ "wheel" "networkmanager" ];
       };
 
-      environment.systemPackages = [
-        pkgs.fzf
-        pkgs.jq
-        pkgs.neofetch
-        pkgs.neovim
-        pkgs.nodejs_22
-        pkgs.ripgrep
-        pkgs.solana-cli
-        pkgs.zellij
-        pkgs.zoxide
+      networking = {
+        hostName = "sauron"; # Define hostname
+        networkmanager.enable = true;
+      };
+
+      time.timeZone = "America/Chicago";
+
+      i18n = {
+        defaultLocale = "en_US.UTF-8";
+        extraLocaleSettings = {
+          LC_TIME = "en_US.UTF-8";
+        };
+      };
+
+      services = {
+        xserver = {
+          enable = true;
+          displayManager.lightdm.enable = true;
+          desktopManager.xfce.enable = true;
+          xkb = { layout = "us"; variant = "colemak"; };
+        };
+        printing.enable = true;
+        pipewire = {
+          enable = true;
+          alsa.enable = true;
+          pulse.enable = true;
+        };
+        openssh.enable = true;
+      };
+
+      environment.systemPackages = with pkgs; [
+        fzf vim neovim ripgrep solana-cli zellij zoxide
       ];
 
-      services.sshd.enable = true;
-      system.stateVersion = "23.05";
+      nixpkgs.config = { allowUnfree = true; };
+      system.stateVersion = "24.05";
     };
   in
   {
@@ -261,14 +225,13 @@
     # Expose the package set, including overlays, for convenience.
     darwinPackages = self.darwinConfigurations.bilbo.pkgs;
 
-    nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
+    nixosConfigurations.sauron = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       modules = [
         nixosConfiguration
         home-manager.nixosModules.home-manager {
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
-          home-manager.verbose = true;
           home-manager.users.kristian = commonHomeConfig;
         }
       ];
