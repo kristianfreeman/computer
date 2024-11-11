@@ -155,9 +155,30 @@
       programs.home-manager.enable = true;
 
       home.packages = with pkgs; [];
-
       home.sessionVariables = {
         EDITOR = "vim";
+      };
+
+      # Sync config folders
+      #####################
+      home.file.".config/btop" = {
+        source = ./btop;
+	recursive = true;
+      };
+
+      home.file.".config/kitty" = {
+        source = ./kitty;
+	recursive = true;
+      };
+
+      home.file.".config/nvim" = {
+        source = ./nvim;
+	recursive = true;
+      };
+
+      home.file.".config/zellij" = {
+        source = ./zellij;
+	recursive = true;
       };
 
       programs.git = {
@@ -174,6 +195,8 @@
       programs.zsh = {
         enable = true;
         shellAliases = {
+	  vi = "nvim";
+	  vim = "nvim";
           switch = "darwin-rebuild switch --flake ~/.config/nix";
         };
       };
