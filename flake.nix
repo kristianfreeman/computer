@@ -207,6 +207,7 @@
           plugins = [
             "chruby"
             "fzf"
+            "zoxide"
           ];
         };
       };
