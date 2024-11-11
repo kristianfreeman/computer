@@ -168,7 +168,9 @@
           "obsidian"
           "plexamp" 
           "raycast"
+          "signal"
           "slack"
+          "telegram"
         ];
         masApps = {
           Noir = 1592917505;
