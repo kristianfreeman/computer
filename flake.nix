@@ -70,10 +70,16 @@
       # Nix packages
       ##############
       environment.systemPackages = [
+        pkgs.fzf
+        pkgs.jq
+        pkgs.mas 
         pkgs.neofetch 
         pkgs.neovim 
         pkgs.nodejs_22
+        pkgs.ripgrep
+        pkgs.solana-cli 
         pkgs.zellij
+        pkgs.zoxide
       ];
 
       # Homebrew, managed by Nix
@@ -85,14 +91,7 @@
           "homebrew/homebrew-core"
           "homebrew/homebrew-cask"
         ];
-        brews = [
-          "fzf"
-          "jq"
-          "mas"
-          "ripgrep"
-          "solana"
-          "zoxide"
-        ];
+        brews = [];
         casks = [ 
           "1password" 
           "boltai"
@@ -108,6 +107,7 @@
           "slack"
         ];
         masApps = {
+          Noir = 1592917505;
           OnePasswordExtension = 1569813296;
         };
       };
