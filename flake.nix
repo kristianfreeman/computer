@@ -194,14 +194,22 @@
 
       programs.zsh = {
         enable = true;
+        initExtra = "source ${./zsh/includes.zsh}";
         shellAliases = {
           vi = "nvim";
           vim = "nvim";
           switch = "darwin-rebuild switch --flake ~/.config/nix";
         };
+        oh-my-zsh = {
+          enable = true;
+          theme = "sunaku";
+          plugins = [
+            "chruby"
+            "fzf"
+          ];
+        };
       };
     };
-  
   in
   {
     # Build darwin flake using:
