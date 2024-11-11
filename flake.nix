@@ -9,11 +9,6 @@
 #  - https://nixcademy.com/posts/nix-on-macos/
 #  - https://github.com/mirkolenz/nixos/blob/main/system/darwin/settings.nix
 
-# Things I would like to set in here:
-# 1. git config
-# 2. home manager
-# 3. fix trackpad direction
-
 {
   description = "Darwin system flake";
 
