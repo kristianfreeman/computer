@@ -86,6 +86,7 @@
           "homebrew/homebrew-cask"
         ];
         brews = [
+          "fzf"
           "jq"
           "mas"
           "ripgrep"
