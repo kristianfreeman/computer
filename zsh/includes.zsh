@@ -6,3 +6,8 @@ function g() {
 function gp() {
   g && git push
 }
+
+function za() {
+  local session_name=${1:-${PWD:t}}
+  zellij attach "$session_name" || zellij -s "$session_name"
+}
