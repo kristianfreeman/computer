@@ -1,4 +1,3 @@
-# home/common.nix
 { config, pkgs, ... }:
 
 let
