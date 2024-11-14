@@ -61,6 +61,7 @@ in
       "1password" 
       "balenaetcher"
       "boltai"
+      "caffeine"
       "discord"
       "flux"
       "font-atkinson-hyperlegible"
