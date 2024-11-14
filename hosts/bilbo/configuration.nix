@@ -36,6 +36,7 @@ in
   ##############
   environment.systemPackages = [
     pkgs.fzf
+    pkgs.gh
     pkgs.jq
     pkgs.mas 
     pkgs.neofetch 
