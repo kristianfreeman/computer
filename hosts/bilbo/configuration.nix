@@ -70,6 +70,8 @@ in
       "jordanbaird-ice"
       "karabiner-elements"
       "kitty" 
+      "mochi"
+      "notion"
       "obsidian"
       "plexamp" 
       "raycast"

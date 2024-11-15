@@ -21,12 +21,18 @@ in
 
   # Environment variables common to all machines
   home.sessionVariables = {
-    EDITOR = "nvim"; # or vim or whichever editor you prefer
+    EDITOR = "nvim";
+    TERM = "xterm";
   };
 
   # Sync config folders across systems
   home.file.".config/nvim" = {
     source = ./nvim; # Adjust path as per your file structure
+    recursive = true;
+  };
+
+  home.file.".editorconfig" = {
+    source = ./editorconfig; # Adjust path as per your file structure
     recursive = true;
   };
 
