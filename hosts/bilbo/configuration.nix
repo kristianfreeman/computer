@@ -13,6 +13,7 @@ in
   # TODO: fix this
   # system.configurationRevision = config.configurationRevision or null;
   system.stateVersion = 5;
+  nixpkgs.config.allowUnfree = true;
   nixpkgs.hostPlatform = "aarch64-darwin";
 
   users.users.kristian = {
@@ -35,8 +36,10 @@ in
   # Nix packages
   ##############
   environment.systemPackages = [
+    pkgs._1password-cli
     pkgs.fzf
     pkgs.gh
+    pkgs.heroku
     pkgs.jq
     pkgs.mas 
     pkgs.neofetch 
@@ -75,6 +78,7 @@ in
       "obsidian"
       "plexamp" 
       "raycast"
+      "screen-studio"
       "signal"
       "slack"
       "telegram"
