@@ -47,6 +47,7 @@ in
     pkgs.nodejs_22
     pkgs.ripgrep
     pkgs.solana-cli 
+    pkgs.yt-dlp
     pkgs.zellij
     pkgs.zoxide
   ];
@@ -70,9 +71,11 @@ in
       "flux"
       "font-atkinson-hyperlegible"
       "font-jetbrains-mono-nerd-font"
+      "google-chrome"
       "jordanbaird-ice"
       "karabiner-elements"
       "kitty" 
+      "macwhisper"
       "mochi"
       "notion"
       "obsidian"
