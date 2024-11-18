@@ -37,6 +37,8 @@ in
   ##############
   environment.systemPackages = [
     pkgs._1password-cli
+    pkgs.caddy
+    pkgs.ffmpeg
     pkgs.fzf
     pkgs.gh
     pkgs.heroku
