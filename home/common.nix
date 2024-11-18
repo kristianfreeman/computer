@@ -27,12 +27,16 @@ in
 
   # Sync config folders across systems
   home.file.".config/nvim" = {
-    source = ./nvim; # Adjust path as per your file structure
+    source = ./nvim;
     recursive = true;
   };
 
+  home.file.".config/karabiner.edn" = {
+    source = ./karabiner.edn;
+  };
+
   home.file.".editorconfig" = {
-    source = ./editorconfig; # Adjust path as per your file structure
+    source = ./editorconfig;
     recursive = true;
   };
 
@@ -82,5 +86,9 @@ in
       ];
     };
   };
+
+  home.activation.syncGoku = ''
+    ${pkgs.goku}/bin/goku
+  '';
 }
 

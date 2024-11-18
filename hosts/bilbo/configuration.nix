@@ -41,6 +41,7 @@ in
     pkgs.ffmpeg
     pkgs.fzf
     pkgs.gh
+    pkgs.goku
     pkgs.heroku
     pkgs.jq
     pkgs.mas 
