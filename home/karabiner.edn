@@ -3,17 +3,11 @@
 ;; Note that I use colemak, so the keys here are my translated keys, such as "s" for "r"
 
 {:profiles {:goku {:default true}}
- :templates {
-   :launch "osascript -e 'tell application \"%s\" to activate'"
-   :open "open %s"
- }
+ :templates {:launch "osascript -e 'tell application \"%s\" to activate'"
+             :open "open %s"}
  :layers {:hyper-mode {:key :caps_lock :alone {:key :escape}}}
- :simlayers {:launch-mode {:key :slash}
-             :tmux-winmove-mode {:key :q :condi :Terminals}
-             :raycast-mode {:key :s}
-             :period-mode {:key :period}
-             :comma-mode {:key :comma}
-             :space-mode {:key :spacebar :condi :macbook-internal}}
+ :simlayers {:app-mode {:key :a}
+             :raycast-mode {:key :s}}
 
  :main [{:des "Hyper Mode - Simple"
          :rules [:hyper-mode
@@ -23,46 +17,22 @@
         {:des "Raycast Mode [S]"
          :rules [:raycast-mode
                  [:k [:open "raycast://extensions/raycast/emoji-symbols/search-emoji-symbols"]]
-                 [:n [:open "raycast://extensions/raycast/snippets/search-snippets"]]]}
+                 [:n [:open "raycast://extensions/raycast/snippets/search-snippets"]]
+                 [:c [:open "raycast://extensions/raycast/raycast/confetti"]]]}
 
         {:des "Hyper Mode - Misc"
          :rules [:hyper-mode
                  [:escape :caps_lock]
                  [:grave_accent_and_tilde :!CS5]]}
 
-        {:des "Comma Mode [,] as Trigger Key"
-         :rules [:comma-mode
-                 [:a :open_bracket]
-                 [:s :close_bracket]
-                 [:d :!S7]
-                 [:f :!S8]
-                 [:q :!Shyphen]
-                 [:w :!Sequal_sign]
-                 [:e :!S5]
-                 [:r :!S6]]}
-
-        {:des "Period Mode [.] as Trigger Key"
-         :rules [:period-mode
-                 [:comma ["period-comma-mode" 1] nil {:alone :comma :afterup ["period-comma-mode" 0]}]
-                 [:a [:!Sgrave_accent_and_tilde :slash]]
-                 [:s [:period :!S8]]
-                 [:d :!S9]
-                 [:f :!S0]
-                 [:q :hyphen]
-                 [:w :equal_sign]
-                 [:e :!Sopen_bracket]
-                 [:r :!Sclose_bracket]]}
-
-        {:des "Launcher Mode [L] as Trigger Key"
-         :rules [:launch-mode
-                 [:t [:launch "Telegram"]]
-                 [:s [:launch "Safari"]]
-                 [:m [:launch "MWeb.app"]]]}
-
-]
-
- ; the default value is 250
- :simlayer-threshold 500
+        {:des "App Mode [A] as Trigger Key"
+         :rules [:app-mode
+                 [:r [:launch "Plexamp"]]
+                 [:d [:launch "Safari"]]
+                 [:c [:launch "Calendar"]]
+                 [:semicolon [:launch "Obsidian"]]
+                 [:m [:launch "Mail"]]]}
+ ]
 
  :applications {:Terminals ["^com\\.apple\\.Terminal$"
                             "^com\\.googlecode\\.iterm2$"]}}
