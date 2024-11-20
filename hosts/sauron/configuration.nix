@@ -100,6 +100,7 @@
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     gcc
+    gh
     vim
     wget
   ];
