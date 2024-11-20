@@ -46,7 +46,7 @@
 
     nixosConfiguration = { config, pkgs, ... }: {
       imports = [
-        ./hosts/sauron/hardware-configuration.nix
+        ./hosts/sauron/configuration.nix
       ];
 
       nixpkgs.system = "x86_64-linux";

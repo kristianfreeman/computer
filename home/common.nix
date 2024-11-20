@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, lib, ... }:
 
 let
 in
@@ -74,7 +74,7 @@ in
     shellAliases = {
       vi = "nvim";
       vim = "nvim";
-      switch = if pkgs.stdenv.isDarwin then "darwin-rebuild switch --flake ~/.config/nix" else "sudo nixos-rebuild switch --flake ~/.config/nix";
+      switch = if pkgs.stdenv.isDarwin then "darwin-rebuild switch --flake ~/.config/nix" else "sudo nixos-rebuild switch --flake /etc/nixos";
     };
     oh-my-zsh = {
       enable = true;
@@ -87,7 +87,7 @@ in
     };
   };
 
-  home.activation.syncGoku = ''
+  home.activation.syncGoku = lib.mkIf pkgs.stdenv.isDarwin ''
     ${pkgs.goku}/bin/goku
   '';
 }
