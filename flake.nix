@@ -39,61 +39,16 @@
 
   let
     commonHomeConfig = import ./home/common.nix;
+
     macBilboConfiguration = { config, pkgs, ... }:
       import ./hosts/bilbo/configuration.nix { 
         inherit config homebrew-core homebrew-cask pkgs;
       };
 
-    nixosConfiguration = { config, pkgs, ... }: {
-      imports = [
-        ./hosts/sauron/configuration.nix
-      ];
-
-      nixpkgs.system = "x86_64-linux";
-      users.users.kristian = {
-        isNormalUser = true;
-        home = "/home/kristian";
-        description = "Kristian Freeman";
-        extraGroups = [ "wheel" "networkmanager" ];
+    nixosConfiguration = { config, pkgs, ... }:
+      import ./hosts/sauron/configuration.nix {
+        inherit config pkgs;
       };
-
-      networking = {
-        hostName = "sauron"; # Define hostname
-        networkmanager.enable = true;
-      };
-
-      time.timeZone = "America/Chicago";
-
-      i18n = {
-        defaultLocale = "en_US.UTF-8";
-        extraLocaleSettings = {
-          LC_TIME = "en_US.UTF-8";
-        };
-      };
-
-      services = {
-        xserver = {
-          enable = true;
-          displayManager.lightdm.enable = true;
-          desktopManager.xfce.enable = true;
-          xkb = { layout = "us"; variant = "colemak"; };
-        };
-        printing.enable = true;
-        pipewire = {
-          enable = true;
-          alsa.enable = true;
-          pulse.enable = true;
-        };
-        openssh.enable = true;
-      };
-
-      environment.systemPackages = with pkgs; [
-        fzf vim neovim ripgrep solana-cli zellij zoxide
-      ];
-
-      nixpkgs.config = { allowUnfree = true; };
-      system.stateVersion = "24.05";
-    };
   in
   {
     # Build darwin flake using:
