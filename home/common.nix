@@ -11,10 +11,12 @@ in
 
   # Shared home packages
   home.packages = with pkgs; [
-    # Add any shared home packages across machines
     fzf
+    gh
+    jq
     neovim
     ripgrep
+    starship
     zellij
     zoxide
   ];
@@ -82,6 +84,7 @@ in
       plugins = [
         "chruby"
         "fzf"
+        "starship"
         "zoxide"
       ];
     };

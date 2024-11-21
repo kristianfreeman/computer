@@ -6,17 +6,12 @@
  :templates {:launch "osascript -e 'tell application \"%s\" to activate'"
              :open "open %s"}
  :layers {:hyper-mode {:key :caps_lock :alone {:key :escape}}}
- :simlayers {:app-mode {:key :a}
-             :raycast-mode {:key :s}}
+ :simlayers {:app-mode {:key :semicolon}}
 
  :main [{:des "Hyper Mode - Simple"
          :rules [:hyper-mode
-                 [:spacebar :!Cspacebar]]}
-
-        ; Colemak "R" is "S"
-        {:des "Raycast Mode [S]"
-         :rules [:raycast-mode
-                 [:k [:open "raycast://extensions/raycast/emoji-symbols/search-emoji-symbols"]]
+                 [:spacebar :!Cspacebar]
+                 [:r [:open "raycast://extensions/raycast/emoji-symbols/search-emoji-symbols"]]
                  [:n [:open "raycast://extensions/raycast/snippets/search-snippets"]]
                  [:c [:open "raycast://extensions/raycast/raycast/confetti"]]]}
 
@@ -25,14 +20,16 @@
                  [:escape :caps_lock]
                  [:grave_accent_and_tilde :!CS5]]}
 
-        {:des "App Mode [A] as Trigger Key"
-         :rules [:app-mode
-                 [:r [:launch "Plexamp"]]
-                 [:d [:launch "Safari"]]
-                 [:c [:launch "Calendar"]]
-                 [:semicolon [:launch "Obsidian"]]
-                 [:m [:launch "Mail"]]]}
+        ;{:des "App Mode [;] as Trigger Key"
+        ; :rules [:app-mode
+        ;         [:r [:launch "Plexamp"]]
+        ;         [:d [:launch "Safari"]]
+        ;         [:c [:launch "Calendar"]]
+        ;         [:semicolon [:launch "Obsidian"]]
+        ;         [:m [:launch "Mail"]]]}
  ]
+
+ :simlayer-threshold 500
 
  :applications {:Terminals ["^com\\.apple\\.Terminal$"
                             "^com\\.googlecode\\.iterm2$"]}}

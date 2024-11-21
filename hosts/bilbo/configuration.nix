@@ -39,20 +39,13 @@ in
     pkgs._1password-cli
     pkgs.caddy
     pkgs.ffmpeg
-    pkgs.fzf
-    pkgs.gh
     pkgs.goku
     pkgs.heroku
-    pkgs.jq
     pkgs.mas 
     pkgs.neofetch 
-    pkgs.neovim 
     pkgs.nodejs_22
-    pkgs.ripgrep
     pkgs.solana-cli 
     pkgs.yt-dlp
-    pkgs.zellij
-    pkgs.zoxide
   ];
 
   # Homebrew, managed by Nix
@@ -88,6 +81,7 @@ in
       "signal"
       "slack"
       "telegram"
+      "visual-studio-code"
     ];
     masApps = {
       Noir = 1592917505;
