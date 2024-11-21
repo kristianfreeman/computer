@@ -9,16 +9,19 @@ in
   # Enable Home Manager
   programs.home-manager.enable = true;
 
+  home.shellAliases = {
+    cat = "bat --theme catppuccin-mocha";
+    ls = "eza --group-directories-first";
+    tree = "eza --group-directories-first --tree";
+  };
+
   # Shared home packages
   home.packages = with pkgs; [
-    fzf
     gh
-    jq
     neovim
     ripgrep
     starship
     zellij
-    zoxide
   ];
 
   # Environment variables common to all machines
@@ -68,6 +71,23 @@ in
       push.autoSetupRemote = true;
     };
   };
+
+  programs.bat.enable = true;
+  programs.btop.enable = true;
+  programs.eza = {
+    enable = true;
+    icons = "auto";
+
+    extraOptions = [
+      "--group-directories-first"
+      "--no-quotes"
+      "--git-ignore"
+    ];
+
+  };
+  programs.fzf.enable = true;
+  programs.jq.enable = true;
+  programs.zoxide.enable = true;
 
   # ZSH and oh-my-zsh configurations
   programs.zsh = {
