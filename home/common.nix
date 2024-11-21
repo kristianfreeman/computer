@@ -10,6 +10,7 @@ in
   programs.home-manager.enable = true;
 
   home.shellAliases = {
+    ao = "exec $SHELL -l";
     cat = "bat --theme catppuccin-mocha";
     ls = "eza --group-directories-first";
     tree = "eza --group-directories-first --tree";
