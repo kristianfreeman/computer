@@ -20,6 +20,8 @@ in
   home.packages = with pkgs; [
     gh
     neovim
+    nodejs
+    openssl
     ripgrep
     starship
     zellij

@@ -39,7 +39,7 @@ in
     pkgs._1password-cli
     pkgs.caddy
     pkgs.ffmpeg
-    pkgs.goku
+    # pkgs.goku
     pkgs.heroku
     pkgs.mas 
     pkgs.neofetch 
@@ -68,7 +68,7 @@ in
       "font-jetbrains-mono-nerd-font"
       "google-chrome"
       "jordanbaird-ice"
-      "karabiner-elements"
+      # "karabiner-elements"
       "kitty" 
       "macwhisper"
       "mochi"
@@ -94,15 +94,15 @@ in
   # Enable Touch ID support
   security.pam.enableSudoTouchIdAuth = true;
 
-  # system.keyboard.enableKeyMapping = true;
-  # system.keyboard.userKeyMapping = [
-  #   {
-  #     # From: CapsLock (0x700000039)
-  #     HIDKeyboardModifierMappingSrc = 30064771129;
-  #     # To: F18 (0x70000006D)
-  #     HIDKeyboardModifierMappingDst = 30064771181;
-  #   }
-  # ];
+  system.keyboard.enableKeyMapping = true;
+  system.keyboard.userKeyMapping = [
+    {
+      # From: CapsLock (0x700000039)
+      HIDKeyboardModifierMappingSrc = 30064771129;
+      # To: F18 (0x70000006D)
+      HIDKeyboardModifierMappingDst = 30064771181;
+    }
+  ];
 
   # System settings
   system.defaults = {

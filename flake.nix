@@ -45,6 +45,11 @@
         inherit config homebrew-core homebrew-cask pkgs;
       };
 
+    macCFConfiguration = { config, pkgs, ... }:
+      import ./hosts/cf/configuration.nix { 
+        inherit config homebrew-core homebrew-cask pkgs;
+      };
+
     nixosConfiguration = { config, pkgs, ... }:
       import ./hosts/sauron/configuration.nix {
         inherit config pkgs;
@@ -60,6 +65,23 @@
         #   system.configurationRevision = self.rev or self.dirtyRev or null;
         # })
         macBilboConfiguration
+        nix-homebrew.darwinModules.nix-homebrew
+        home-manager.darwinModules.home-manager {
+          home-manager.useGlobalPkgs = true;
+          home-manager.useUserPackages = true;
+          home-manager.verbose = true;
+          home-manager.users.kristian = commonHomeConfig;
+        }
+      ];
+    };
+
+    darwinConfigurations.JNVX4K0VCG = nix-darwin.lib.darwinSystem {
+      modules = [
+        # TODO: fix this
+        # ({ config, pkgs, ... }: {
+        #   system.configurationRevision = self.rev or self.dirtyRev or null;
+        # })
+        macCFConfiguration
         nix-homebrew.darwinModules.nix-homebrew
         home-manager.darwinModules.home-manager {
           home-manager.useGlobalPkgs = true;
