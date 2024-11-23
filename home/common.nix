@@ -24,6 +24,7 @@ in
     openssl
     ripgrep
     starship
+    wget
     zellij
   ];
 
@@ -37,6 +38,10 @@ in
   home.file.".config/nvim" = {
     source = ./nvim;
     recursive = true;
+  };
+
+  home.file.".aerospace.toml" = {
+    source = ./aerospace.toml;
   };
 
   home.file.".config/karabiner.edn" = {
