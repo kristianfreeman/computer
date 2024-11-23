@@ -37,6 +37,7 @@ in
   ##############
   environment.systemPackages = [
     pkgs._1password-cli
+    pkgs.aerospace
     pkgs.caddy
     pkgs.ffmpeg
     pkgs.goku
@@ -114,6 +115,7 @@ in
     dock = {
       autohide = true;
       autohide-time-modifier = 0.1;
+      expose-group-by-app = true;
       mru-spaces = false;
       show-recents = false;
       static-only = true;
@@ -132,5 +134,7 @@ in
       InitialKeyRepeat = 10;
       KeyRepeat = 1;
     };
+
+    spaces.spans-displays = true;
   };
 }
