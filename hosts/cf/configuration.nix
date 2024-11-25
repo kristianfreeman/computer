@@ -37,6 +37,7 @@ in
   ##############
   environment.systemPackages = [
     pkgs._1password-cli
+    pkgs.aerospace
     pkgs.caddy
     pkgs.ffmpeg
     # pkgs.goku
