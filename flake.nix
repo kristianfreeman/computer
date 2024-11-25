@@ -50,6 +50,11 @@
         inherit config homebrew-core homebrew-cask pkgs;
       };
 
+    macGandalfConfiguration = { config, pkgs, ... }:
+      import ./hosts/gandalf/configuration.nix { 
+        inherit config homebrew-core homebrew-cask pkgs;
+      };
+
     nixosConfiguration = { config, pkgs, ... }:
       import ./hosts/sauron/configuration.nix {
         inherit config pkgs;
@@ -65,6 +70,23 @@
         #   system.configurationRevision = self.rev or self.dirtyRev or null;
         # })
         macBilboConfiguration
+        nix-homebrew.darwinModules.nix-homebrew
+        home-manager.darwinModules.home-manager {
+          home-manager.useGlobalPkgs = true;
+          home-manager.useUserPackages = true;
+          home-manager.verbose = true;
+          home-manager.users.kristian = commonHomeConfig;
+        }
+      ];
+    };
+
+    darwinConfigurations.gandalf = nix-darwin.lib.darwinSystem {
+      modules = [
+        # TODO: fix this
+        # ({ config, pkgs, ... }: {
+        #   system.configurationRevision = self.rev or self.dirtyRev or null;
+        # })
+        macGandalfConfiguration
         nix-homebrew.darwinModules.nix-homebrew
         home-manager.darwinModules.home-manager {
           home-manager.useGlobalPkgs = true;
