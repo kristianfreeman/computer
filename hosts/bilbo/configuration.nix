@@ -83,6 +83,7 @@ in
       "slack"
       "splice"
       "telegram"
+      "ultimate-vocal-remover"
       "visual-studio-code"
     ];
     masApps = {
