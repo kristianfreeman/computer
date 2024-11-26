@@ -20,12 +20,15 @@ in
   home.packages = with pkgs; [
     gh
     neovim
+    nmap
     nodejs
     openssl
     ripgrep
     starship
+    stockfish
     wget
     zellij
+    xh
   ];
 
   # Environment variables common to all machines
