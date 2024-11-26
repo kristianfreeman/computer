@@ -72,6 +72,7 @@ in
       "karabiner-elements"
       "kitty" 
       "macwhisper"
+      "microsoft-teams"
       "mochi"
       "notion"
       "obsidian"
@@ -80,6 +81,7 @@ in
       "screen-studio"
       "signal"
       "slack"
+      "splice"
       "telegram"
       "visual-studio-code"
     ];
