@@ -27,7 +27,6 @@ in
     starship
     stockfish
     wget
-    zellij
     xh
   ];
 
@@ -38,6 +37,11 @@ in
   };
 
   # Sync config folders across systems
+  home.file.".config/bat" = {
+    source = ./bat;
+    recursive = true;
+  };
+
   home.file.".config/nvim" = {
     source = ./nvim;
     recursive = true;
@@ -56,11 +60,6 @@ in
     recursive = true;
   };
 
-  home.file.".config/zellij" = {
-    source = ./zellij;
-    recursive = true;
-  };
-
   home.file.".config/kitty" = {
     source = ./kitty;
     recursive = true;
@@ -71,7 +70,24 @@ in
     recursive = true;
   };
 
-  # Git configuration
+  # Programs with no config
+  programs.bat.enable = true;
+  programs.btop.enable = true;
+  programs.fzf.enable = true;
+  programs.jq.enable = true;
+  programs.zoxide.enable = true;
+
+  programs.eza = {
+    enable = true;
+    icons = "auto";
+
+    extraOptions = [
+      "--group-directories-first"
+      "--no-quotes"
+      "--git-ignore"
+    ];
+  };
+
   programs.git = {
     enable = true;
     userName = "Kristian Freeman";
@@ -83,24 +99,13 @@ in
     };
   };
 
-  programs.bat.enable = true;
-  programs.btop.enable = true;
-  programs.eza = {
+  programs.zellij = {
     enable = true;
-    icons = "auto";
-
-    extraOptions = [
-      "--group-directories-first"
-      "--no-quotes"
-      "--git-ignore"
-    ];
-
+    settings = {
+      theme = "catppuccin-mocha";
+    };
   };
-  programs.fzf.enable = true;
-  programs.jq.enable = true;
-  programs.zoxide.enable = true;
 
-  # ZSH and oh-my-zsh configurations
   programs.zsh = {
     enable = true;
     initExtra = "source ${./zsh/includes.zsh}";  # Assumes zsh config stored outside this file.
