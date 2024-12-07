@@ -57,7 +57,11 @@ in
       "homebrew/homebrew-core"
       "homebrew/homebrew-cask"
     ];
-    brews = [];
+    brews = [
+      "postgresql@14"
+      "rbenv"
+      "ruby-build"
+    ];
     casks = [ 
       "1password" 
       "balenaetcher"
@@ -139,5 +143,11 @@ in
     };
 
     spaces.spans-displays = true;
+  };
+
+  home-manager.users.kristian.programs.zsh = {
+    initExtra = ''
+      eval "$(/opt/homebrew/bin/brew shellenv)"
+    '';
   };
 }
