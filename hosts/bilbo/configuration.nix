@@ -78,6 +78,7 @@ in
       "macwhisper"
       "microsoft-teams"
       "mochi"
+      "mullvadvpn"
       "notion"
       "obsidian"
       "plexamp" 
