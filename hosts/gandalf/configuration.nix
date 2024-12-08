@@ -41,10 +41,12 @@ in
     pkgs.caddy
     pkgs.ffmpeg
     pkgs.goku
+    pkgs.id3v2
     pkgs.heroku
     pkgs.mas 
     pkgs.neofetch 
     pkgs.solana-cli 
+    pkgs.volta
     pkgs.yt-dlp
   ];
 
