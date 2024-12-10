@@ -19,13 +19,11 @@ in
   # Shared home packages
   home.packages = with pkgs; [
     gh
-    libyaml
     neovim
     nmap
     nodejs
     openssl
     ripgrep
-    ruby_3_3
     starship
     stockfish
     wget
@@ -101,6 +99,11 @@ in
     };
   };
 
+  programs.mise = {
+    enable = true;
+    enableZshIntegration = true;
+  };
+
   programs.zellij = {
     enable = true;
     settings = {
@@ -120,8 +123,8 @@ in
       enable = true;
       theme = "sunaku";
       plugins = [
-        "chruby"
         "fzf"
+        "mise"
         "starship"
         "zoxide"
       ];

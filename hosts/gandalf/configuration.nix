@@ -46,7 +46,6 @@ in
     pkgs.mas 
     pkgs.neofetch 
     pkgs.solana-cli 
-    pkgs.volta
     pkgs.yt-dlp
   ];
 
@@ -59,7 +58,9 @@ in
       "homebrew/homebrew-core"
       "homebrew/homebrew-cask"
     ];
-    brews = [];
+    brews = [
+      "libyaml"
+    ];
     casks = [ 
       "1password" 
       "ableton-live-suite"
