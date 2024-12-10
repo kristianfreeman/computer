@@ -19,6 +19,7 @@ in
   # Shared home packages
   home.packages = with pkgs; [
     gh
+    libyaml
     neovim
     nmap
     nodejs
