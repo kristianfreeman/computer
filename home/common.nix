@@ -24,6 +24,7 @@ in
     nodejs
     openssl
     ripgrep
+    ruby_3_3
     starship
     stockfish
     wget

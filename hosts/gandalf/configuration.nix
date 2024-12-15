@@ -33,22 +33,6 @@ in
     };
   };
 
-  # Nix packages
-  ##############
-  environment.systemPackages = [
-    pkgs._1password-cli
-    pkgs.aerospace
-    pkgs.caddy
-    pkgs.ffmpeg
-    pkgs.goku
-    pkgs.id3v2
-    pkgs.heroku
-    pkgs.mas 
-    pkgs.neofetch 
-    pkgs.solana-cli 
-    pkgs.yt-dlp
-  ];
-
   # Homebrew, managed by Nix
   ##########################
   homebrew = {
@@ -59,7 +43,9 @@ in
       "homebrew/homebrew-cask"
     ];
     brews = [
+      "libpq"
       "libyaml"
+      "postgresql@14"
     ];
     casks = [ 
       "1password" 
@@ -67,6 +53,7 @@ in
       "balenaetcher"
       "boltai"
       "caffeine"
+      "calibre"
       "discord"
       "flux"
       "font-atkinson-hyperlegible"
@@ -86,6 +73,7 @@ in
       "signal"
       "slack"
       "splice"
+      "steam"
       "telegram"
       "visual-studio-code"
     ];
@@ -94,6 +82,23 @@ in
       OnePasswordExtension = 1569813296;
     };
   };
+
+  # Nix packages
+  ##############
+  environment.systemPackages = [
+    pkgs._1password-cli
+    pkgs.aerospace
+    pkgs.caddy
+    pkgs.ffmpeg
+    pkgs.goku
+    pkgs.id3v2
+    pkgs.heroku
+    pkgs.mas 
+    pkgs.neofetch 
+    pkgs.ruby_3_3
+    pkgs.solana-cli 
+    pkgs.yt-dlp
+  ];
 
   # System settings
   #################
