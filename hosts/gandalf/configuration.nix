@@ -69,6 +69,7 @@ in
       "plex-media-server"
       "plexamp" 
       "raycast"
+      "recut"
       "screen-studio"
       "signal"
       "slack"
@@ -77,7 +78,11 @@ in
       "telegram"
       "visual-studio-code"
     ];
+    # nix shell nixpkgs#mas
+    # mas search <app name>
     masApps = {
+      Adblock = 1402042596;
+      MacFamilyTree = 1567970985;
       Noir = 1592917505;
       OnePasswordExtension = 1569813296;
     };
