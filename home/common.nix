@@ -105,6 +105,14 @@ in
     enableZshIntegration = true;
   };
 
+  programs.vscode = {
+    enable = true;
+    extensions = with pkgs.vscode-extensions; [
+      astro-build.astro-vscode
+      catppuccin.catppuccin-vsc
+    ];
+  };
+
   programs.zellij = {
     enable = true;
     settings = {
