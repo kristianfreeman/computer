@@ -76,6 +76,7 @@ in
       "splice"
       "steam"
       "telegram"
+      "transmission"
       "visual-studio-code"
     ];
     # nix shell nixpkgs#mas

@@ -18,6 +18,7 @@ in
 
   # Shared home packages
   home.packages = with pkgs; [
+    devbox
     gh
     neovim
     nmap
@@ -25,6 +26,7 @@ in
     openssl
     ripgrep
     ruby_3_3
+    rbenv
     starship
     stockfish
     wget
@@ -133,15 +135,15 @@ in
       theme = "sunaku";
       plugins = [
         "fzf"
-        "mise"
+        "rbenv"
         "starship"
         "zoxide"
       ];
     };
   };
 
-  home.activation.syncGoku = lib.mkIf pkgs.stdenv.isDarwin ''
-    ${pkgs.goku}/bin/goku
-  '';
+  # home.activation.syncGoku = lib.mkIf pkgs.stdenv.isDarwin ''
+  #   ${pkgs.goku}/bin/goku
+  # '';
 }
 

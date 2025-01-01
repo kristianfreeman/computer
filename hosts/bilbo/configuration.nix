@@ -58,6 +58,7 @@ in
       "homebrew/homebrew-cask"
     ];
     brews = [
+      "libyaml"
       "postgresql@14"
       "rbenv"
       "ruby-build"
@@ -67,6 +68,7 @@ in
       "balenaetcher"
       "boltai"
       "caffeine"
+      "calibre"
       "discord"
       "flux"
       "font-atkinson-hyperlegible"
@@ -74,9 +76,8 @@ in
       "google-chrome"
       "jordanbaird-ice"
       "karabiner-elements"
-      "kitty" 
+      "ledger-live"
       "macwhisper"
-      "microsoft-teams"
       "mochi"
       "mullvadvpn"
       "notion"
@@ -88,8 +89,10 @@ in
       "slack"
       "splice"
       "telegram"
+      "transmission"
       "ultimate-vocal-remover"
       "visual-studio-code"
+      "vlc"
     ];
     masApps = {
       Noir = 1592917505;

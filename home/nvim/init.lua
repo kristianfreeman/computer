@@ -757,6 +757,28 @@ require("lazy").setup({
     end,
   },
 
+  {
+    "epwalsh/obsidian.nvim",
+    version = "*",
+    lazy = true,
+    ft = "markdown",
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+    },
+    opts = {
+      workspaces = {
+        {
+          name = "kristian",
+          path = "~/Documents/kristian",
+        },
+      },
+    },
+    config = function()
+      -- set conceal level to 0
+      vim.cmd("set conceallevel=0")
+    end,
+  },
+
   -- Highlight todo, notes, etc in comments
   {
     "folke/todo-comments.nvim",
