@@ -1,0 +1,3 @@
+theme = catppuccin-mocha
+macos-icon = custom-style
+macos-option-as-alt = true

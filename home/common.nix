@@ -45,6 +45,11 @@ in
     recursive = true;
   };
 
+  home.file.".config/ghostty" = {
+    source = ./ghostty;
+    recursive = true;
+  };
+
   home.file.".config/nvim" = {
     source = ./nvim;
     recursive = true;
