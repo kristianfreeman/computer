@@ -1,2 +1,12 @@
-theme = catppuccin-mocha
+keybind = alt+left=unbind
+keybind = alt+right=unbind
+
+macos-icon = custom-style
 macos-option-as-alt = true
+macos-titlebar-style = hidden
+
+theme = catppuccin-mocha
+
+window-padding-x = 3
+window-padding-y = 3
+window-padding-balance = true
