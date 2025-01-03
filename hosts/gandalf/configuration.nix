@@ -13,6 +13,7 @@ in
   # TODO: fix this
   # system.configurationRevision = config.configurationRevision or null;
   system.stateVersion = 5;
+
   nixpkgs.config.allowUnfree = true;
   nixpkgs.hostPlatform = "aarch64-darwin";
 
@@ -54,6 +55,7 @@ in
       "boltai"
       "caffeine"
       "calibre"
+      "claude"
       "discord"
       "flux"
       "font-atkinson-hyperlegible"
@@ -61,7 +63,6 @@ in
       "google-chrome"
       "jordanbaird-ice"
       "karabiner-elements"
-      "kitty" 
       "macwhisper"
       "mochi"
       "notion"

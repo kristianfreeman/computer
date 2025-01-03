@@ -146,9 +146,5 @@ in
       ];
     };
   };
-
-  # home.activation.syncGoku = lib.mkIf pkgs.stdenv.isDarwin ''
-  #   ${pkgs.goku}/bin/goku
-  # '';
 }
 

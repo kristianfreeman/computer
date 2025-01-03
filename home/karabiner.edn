@@ -12,8 +12,7 @@
          :rules [:hyper-mode
                  [:spacebar :!Cspacebar]
                  [:r [:open "raycast://extensions/raycast/emoji-symbols/search-emoji-symbols"]]
-                 [:n [:open "raycast://extensions/raycast/snippets/search-snippets"]]
-                 [:c [:open "raycast://extensions/raycast/raycast/confetti"]]]}
+                 [:n [:open "raycast://extensions/raycast/snippets/search-snippets"]]]}
 
         {:des "Hyper Mode - Misc"
          :rules [:hyper-mode

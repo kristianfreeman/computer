@@ -40,6 +40,8 @@
   let
     commonHomeConfig = import ./home/common.nix;
 
+    inherit (nixpkgs) lib;
+
     macBilboConfiguration = { config, pkgs, ... }:
       import ./hosts/bilbo/configuration.nix { 
         inherit config homebrew-core homebrew-cask pkgs;
