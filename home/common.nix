@@ -25,8 +25,12 @@ in
     nodejs
     openssl
     ripgrep
+<<<<<<< HEAD
     ruby_3_3
     rbenv
+=======
+    slides
+>>>>>>> f5c3e61 (2025-01-06-10:39:28)
     starship
     stockfish
     wget
