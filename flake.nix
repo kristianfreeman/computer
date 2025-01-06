@@ -47,6 +47,11 @@
         inherit config homebrew-core homebrew-cask pkgs;
       };
 
+    arcadeConfiguration = { config, pkgs, ... }:
+      import ./hosts/arcade/configuration.nix { 
+        inherit config homebrew-core homebrew-cask pkgs;
+      };
+
     macCFConfiguration = { config, pkgs, ... }:
       import ./hosts/cf/configuration.nix { 
         inherit config homebrew-core homebrew-cask pkgs;
@@ -72,6 +77,23 @@
         #   system.configurationRevision = self.rev or self.dirtyRev or null;
         # })
         macBilboConfiguration
+        nix-homebrew.darwinModules.nix-homebrew
+        home-manager.darwinModules.home-manager {
+          home-manager.useGlobalPkgs = true;
+          home-manager.useUserPackages = true;
+          home-manager.verbose = true;
+          home-manager.users.kristian = commonHomeConfig;
+        }
+      ];
+    };
+
+    darwinConfigurations.arcade = nix-darwin.lib.darwinSystem {
+      modules = [
+        # TODO: fix this
+        # ({ config, pkgs, ... }: {
+        #   system.configurationRevision = self.rev or self.dirtyRev or null;
+        # })
+        arcadeConfiguration
         nix-homebrew.darwinModules.nix-homebrew
         home-manager.darwinModules.home-manager {
           home-manager.useGlobalPkgs = true;
