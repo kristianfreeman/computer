@@ -37,14 +37,7 @@ in
   ##############
   environment.systemPackages = [
     pkgs._1password-cli
-    pkgs.aerospace
-    pkgs.caddy
-    pkgs.ffmpeg
-    pkgs.goku
-    pkgs.heroku
     pkgs.mas 
-    pkgs.neofetch 
-    pkgs.solana-cli 
     pkgs.yt-dlp
   ];
 
@@ -57,11 +50,7 @@ in
       "homebrew/homebrew-core"
       "homebrew/homebrew-cask"
     ];
-    brews = [
-      "postgresql@14"
-      "rbenv"
-      "ruby-build"
-    ];
+    brews = [];
     casks = [ 
       "1password" 
       "caffeine"
@@ -71,9 +60,7 @@ in
       "jordanbaird-ice"
       "karabiner-elements"
       "kitty" 
-      "raycast"
-      "the-unarchiver"
-      "transmission"
+      "native-access"
     ];
     masApps = {
       Noir = 1592917505;

@@ -47,8 +47,8 @@
         inherit config homebrew-core homebrew-cask pkgs;
       };
 
-    arcadeConfiguration = { config, pkgs, ... }:
-      import ./hosts/arcade/configuration.nix { 
+    drumConfiguration = { config, pkgs, ... }:
+      import ./hosts/drum/configuration.nix { 
         inherit config homebrew-core homebrew-cask pkgs;
       };
 
@@ -87,13 +87,13 @@
       ];
     };
 
-    darwinConfigurations.arcade = nix-darwin.lib.darwinSystem {
+    darwinConfigurations.drum = nix-darwin.lib.darwinSystem {
       modules = [
         # TODO: fix this
         # ({ config, pkgs, ... }: {
         #   system.configurationRevision = self.rev or self.dirtyRev or null;
         # })
-        arcadeConfiguration
+        drumConfiguration
         nix-homebrew.darwinModules.nix-homebrew
         home-manager.darwinModules.home-manager {
           home-manager.useGlobalPkgs = true;
