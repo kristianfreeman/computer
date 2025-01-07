@@ -70,6 +70,7 @@ in
       "boltai"
       "caffeine"
       "calibre"
+      "claude"
       "discord"
       "flux"
       "font-atkinson-hyperlegible"
