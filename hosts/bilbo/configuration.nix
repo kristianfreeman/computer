@@ -42,6 +42,7 @@ in
     pkgs.ffmpeg
     pkgs.goku
     pkgs.heroku
+    pkgs.hugo
     pkgs.mas 
     pkgs.neofetch 
     pkgs.solana-cli 

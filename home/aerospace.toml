@@ -93,6 +93,10 @@ if.app-id = "net.kovidgoyal.kitty"
 run = "move-node-to-workspace term"
 
 [[on-window-detected]]
+if.app-id = "com.mitchellh.ghostty"
+run = "move-node-to-workspace term"
+
+[[on-window-detected]]
 if.app-id = "com.apple.Safari"
 run = "move-node-to-workspace web"
 
