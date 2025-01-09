@@ -84,6 +84,7 @@ in
     # mas search <app name>
     masApps = {
       Adblock = 1402042596;
+      Copilot = 1447330651;
       MacFamilyTree = 1567970985;
       Noir = 1592917505;
       PixelmatorPro = 1289583905;
