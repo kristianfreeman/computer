@@ -86,6 +86,7 @@ in
       Adblock = 1402042596;
       MacFamilyTree = 1567970985;
       Noir = 1592917505;
+      PixelmatorPro = 1289583905;
       OnePasswordExtension = 1569813296;
     };
   };
