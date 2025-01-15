@@ -90,6 +90,7 @@ in
       "signal"
       "slack"
       "splice"
+      "steam"
       "telegram"
       "transmission"
       "ultimate-vocal-remover"
