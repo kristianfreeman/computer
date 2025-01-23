@@ -49,8 +49,9 @@ alt-3 = 'workspace chat'
 alt-4 = 'workspace ops'
 alt-5 = 'workspace misc'
 alt-6 = 'workspace 6'
-alt-g = 'workspace discord'
+alt-a = 'workspace a'
 alt-d = 'workspace slack'
+alt-g = 'workspace discord'
 alt-semicolon = 'workspace obsidian'
 
 alt-shift-1 = 'move-node-to-workspace web'
@@ -59,6 +60,7 @@ alt-shift-3 = 'move-node-to-workspace chat'
 alt-shift-4 = 'move-node-to-workspace ops'
 alt-shift-5 = 'move-node-to-workspace misc'
 alt-shift-6 = 'move-node-to-workspace 6'
+alt-shift-a = 'move-node-to-workspace ai'
 alt-shift-semicolon = 'move-node-to-workspace obsidian'
 
 alt-shift-c = 'reload-config'
@@ -84,6 +86,7 @@ outer.top =        4
 outer.right =      4
 
 # auto assign apps
+# aerospace list-apps
 [[on-window-detected]]
 if.app-id = "md.obsidian"
 run = "move-node-to-workspace obsidian"
@@ -107,3 +110,15 @@ run = "move-node-to-workspace discord"
 [[on-window-detected]]
 if.app-id = "com.tinyspeck.slackmacgap"
 run = "move-node-to-workspace slack"
+
+[[on-window-detected]]
+if.app-id = "com.apple.iCal"
+run = "move-node-to-workspace cal"
+
+[[on-window-detected]]
+if.app-id = "co.podzim.BoltGPT"
+run = "move-node-to-workspace ai"
+
+[[on-window-detected]]
+if.app-id = "com.anthropic.claudefordesktop"
+run = "move-node-to-workspace ai"

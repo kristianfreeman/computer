@@ -45,6 +45,7 @@ in
     ];
     brews = [
       "libpq"
+      "libusb"
       "libyaml"
       "postgresql@14"
     ];
@@ -67,16 +68,19 @@ in
       "mochi"
       "notion"
       "obsidian"
+      "ollama"
       "plex-media-server"
       "plexamp" 
       "raycast"
       "recut"
+      "rekordbox"
       "screen-studio"
       "signal"
       "slack"
       "splice"
       "steam"
       "telegram"
+      "the-unarchiver"
       "transmission"
       "visual-studio-code"
     ];
