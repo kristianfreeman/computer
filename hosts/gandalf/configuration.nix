@@ -58,6 +58,7 @@ in
       "calibre"
       "claude"
       "discord"
+      "firefox"
       "flux"
       "font-atkinson-hyperlegible"
       "font-jetbrains-mono-nerd-font"

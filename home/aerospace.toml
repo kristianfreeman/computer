@@ -104,6 +104,10 @@ if.app-id = "com.apple.Safari"
 run = "move-node-to-workspace web"
 
 [[on-window-detected]]
+if.app-id = "org.mozilla.firefox"
+run = "move-node-to-workspace web"
+
+[[on-window-detected]]
 if.app-id = "com.hnc.Discord"
 run = "move-node-to-workspace discord"
 
