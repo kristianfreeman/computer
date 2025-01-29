@@ -38,13 +38,16 @@ in
   environment.systemPackages = [
     pkgs._1password-cli
     pkgs.aerospace
+    pkgs.bundix
     pkgs.caddy
+    pkgs.cloc
     pkgs.ffmpeg
     pkgs.goku
     pkgs.heroku
     pkgs.hugo
     pkgs.mas 
     pkgs.neofetch 
+    pkgs.pnpm
     pkgs.solana-cli 
     pkgs.yt-dlp
   ];
@@ -71,6 +74,7 @@ in
       "caffeine"
       "calibre"
       "claude"
+      "cleanshot"
       "discord"
       "flux"
       "font-atkinson-hyperlegible"
