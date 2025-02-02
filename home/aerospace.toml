@@ -48,6 +48,7 @@ alt-2 = 'workspace term'
 alt-3 = 'workspace chat'
 alt-4 = 'workspace ops'
 alt-5 = 'workspace misc'
+alt-t = 'workspace linear'
 alt-6 = 'workspace 6'
 alt-a = 'workspace a'
 alt-d = 'workspace slack'
@@ -118,6 +119,10 @@ run = "move-node-to-workspace slack"
 [[on-window-detected]]
 if.app-id = "com.apple.iCal"
 run = "move-node-to-workspace cal"
+
+[[on-window-detected]]
+if.app-id = "com.linear"
+run = "move-node-to-workspace linear"
 
 [[on-window-detected]]
 if.app-id = "co.podzim.BoltGPT"
