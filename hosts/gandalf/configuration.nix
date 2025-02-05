@@ -63,6 +63,7 @@ in
       "font-atkinson-hyperlegible"
       "font-jetbrains-mono-nerd-font"
       "google-chrome"
+      "imageoptim"
       "jordanbaird-ice"
       "karabiner-elements"
       "macwhisper"
