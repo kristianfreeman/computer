@@ -60,10 +60,6 @@ in
     source = ./aerospace.toml;
   };
 
-  home.file.".config/karabiner.edn" = {
-    source = ./karabiner.edn;
-  };
-
   home.file.".editorconfig" = {
     source = ./editorconfig;
     recursive = true;

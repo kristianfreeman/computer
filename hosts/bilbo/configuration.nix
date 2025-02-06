@@ -42,12 +42,12 @@ in
     pkgs.caddy
     pkgs.cloc
     pkgs.ffmpeg
-    pkgs.goku
     pkgs.heroku
     pkgs.hugo
     pkgs.mas 
     pkgs.neofetch 
     pkgs.pnpm
+    pkgs.rclone
     pkgs.solana-cli 
     pkgs.yt-dlp
   ];
@@ -81,7 +81,6 @@ in
       "font-jetbrains-mono-nerd-font"
       "google-chrome"
       "jordanbaird-ice"
-      "karabiner-elements"
       "ledger-live"
       "macwhisper"
       "mochi"
