@@ -65,7 +65,6 @@ in
       "google-chrome"
       "imageoptim"
       "jordanbaird-ice"
-      "karabiner-elements"
       "macwhisper"
       "mochi"
       "notion"
