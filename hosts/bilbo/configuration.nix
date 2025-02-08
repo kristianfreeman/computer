@@ -76,7 +76,6 @@ in
       "claude"
       "cleanshot"
       "discord"
-      "flux"
       "font-atkinson-hyperlegible"
       "font-jetbrains-mono-nerd-font"
       "google-chrome"
