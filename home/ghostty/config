@@ -3,7 +3,7 @@ keybind = alt+right=unbind
 
 macos-icon = custom-style
 macos-option-as-alt = true
-macos-titlebar-style = hidden
+# macos-titlebar-style = hidden
 
 theme = catppuccin-mocha
 
