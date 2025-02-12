@@ -18,6 +18,7 @@ in
 
   # Shared home packages
   home.packages = with pkgs; [
+    ansible
     devbox
     gh
     neovim
@@ -27,6 +28,7 @@ in
     ripgrep
     ruby_3_3
     rbenv
+    sd
     slides
     starship
     stockfish
