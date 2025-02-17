@@ -69,6 +69,7 @@ in
     ];
     casks = [ 
       "1password" 
+      "audacity"
       "balenaetcher"
       "boltai"
       "caffeine"
@@ -79,6 +80,7 @@ in
       "font-atkinson-hyperlegible"
       "font-jetbrains-mono-nerd-font"
       "google-chrome"
+      "imageoptim"
       "jordanbaird-ice"
       "ledger-live"
       "macwhisper"

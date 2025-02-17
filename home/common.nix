@@ -19,15 +19,17 @@ in
   # Shared home packages
   home.packages = with pkgs; [
     ansible
+    cargo
     devbox
     gh
     neovim
     nmap
     nodejs
     openssl
+    rbenv
     ripgrep
     ruby_3_3
-    rbenv
+    rustc
     sd
     slides
     starship
