@@ -53,6 +53,7 @@ alt-6 = 'workspace 6'
 alt-a = 'workspace a'
 alt-d = 'workspace slack'
 alt-g = 'workspace discord'
+alt-m = 'workspace mail'
 alt-semicolon = 'workspace obsidian'
 
 alt-shift-1 = 'move-node-to-workspace web'
@@ -131,3 +132,7 @@ run = "move-node-to-workspace ai"
 [[on-window-detected]]
 if.app-id = "com.anthropic.claudefordesktop"
 run = "move-node-to-workspace ai"
+
+[[on-window-detected]]
+if.app-id = "com.apple.mail"
+run = "move-node-to-workspace mail"
