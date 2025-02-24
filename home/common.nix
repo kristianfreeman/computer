@@ -22,6 +22,7 @@ in
     cargo
     devbox
     gh
+    gifsicle
     neovim
     nmap
     nodejs
