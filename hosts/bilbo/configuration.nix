@@ -41,6 +41,7 @@ in
     pkgs.bundix
     pkgs.caddy
     pkgs.cloc
+    pkgs.consul
     pkgs.ffmpeg
     pkgs.heroku
     pkgs.hugo
