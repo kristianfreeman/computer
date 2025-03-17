@@ -78,6 +78,7 @@ in
       "screen-studio"
       "signal"
       "slack"
+      "sonos"
       "splice"
       "steam"
       "telegram"
@@ -93,6 +94,7 @@ in
       FinalCutPro = 424389933;
       MacFamilyTree = 1567970985;
       Noir = 1592917505;
+      Parcel = 639968404;
       PixelmatorPro = 1289583905;
       OnePasswordExtension = 1569813296;
     };
