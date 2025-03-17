@@ -65,6 +65,7 @@ in
       "google-chrome"
       "imageoptim"
       "jordanbaird-ice"
+      "loom"
       "macwhisper"
       "mochi"
       "notion"
