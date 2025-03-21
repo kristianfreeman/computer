@@ -57,6 +57,7 @@ in
       "caffeine"
       "calibre"
       "claude"
+      "cleanshot"
       "discord"
       "firefox"
       "flux"
@@ -82,6 +83,7 @@ in
       "sonos"
       "splice"
       "steam"
+      "tailscale"
       "telegram"
       "the-unarchiver"
       "transmission"
@@ -110,6 +112,7 @@ in
     pkgs.ffmpeg
     pkgs.goku
     pkgs.id3v2
+    pkgs.imagemagick
     pkgs.heroku
     pkgs.mas 
     pkgs.neofetch 
