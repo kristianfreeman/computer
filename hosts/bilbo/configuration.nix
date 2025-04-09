@@ -98,6 +98,7 @@ in
       "slack"
       "splice"
       "steam"
+      "tailscale"
       "telegram"
       "transmission"
       "ultimate-vocal-remover"
