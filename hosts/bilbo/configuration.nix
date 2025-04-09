@@ -77,6 +77,7 @@ in
       "calibre"
       "claude"
       "cleanshot"
+      "cyberduck"
       "discord"
       "firefox"
       "font-atkinson-hyperlegible"
