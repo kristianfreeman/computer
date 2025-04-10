@@ -97,6 +97,7 @@ in
       "signal"
       "slack"
       "splice"
+      "spotify"
       "steam"
       "tailscale"
       "telegram"
