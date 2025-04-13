@@ -1,173 +1,31 @@
-{ config, pkgs, homebrew-core, homebrew-cask, ... }:
+{ config, pkgs, ... }:
 
 let 
 in
 {
-  # Default settings from nix-darwin.
-  ###################################
-  services.nix-daemon.enable = true;
-  nix.settings.experimental-features = "nix-command flakes";
-  nix.extraOptions = ''
-    extra-platforms = x86_64-darwin aarch64-darwin
-  '';
-  # TODO: fix this
-  # system.configurationRevision = config.configurationRevision or null;
-  system.stateVersion = 5;
-  nixpkgs.config.allowUnfree = true;
-  nixpkgs.hostPlatform = "aarch64-darwin";
-
-  users.users.kristian = {
-    name = "kristian";
-    home = "/Users/kristian";
-  };
-
-  # Install homebrew if not yet installed
-  nix-homebrew = {
-    enable = true;
-    enableRosetta = true;
-    user = "kristian";
-
-    taps = {
-      "homebrew/homebrew-core" = homebrew-core;
-      "homebrew/homebrew-cask" = homebrew-cask;
-    };
-  };
-
-  # Nix packages
-  ##############
-  environment.systemPackages = [
-    pkgs._1password-cli
-    pkgs.aerospace
-    pkgs.bundix
-    pkgs.caddy
-    pkgs.cloc
-    pkgs.consul
-    pkgs.ffmpeg
-    pkgs.heroku
-    pkgs.hugo
-    pkgs.mas 
-    pkgs.neofetch 
-    pkgs.pnpm
-    pkgs.rclone
-    pkgs.solana-cli 
-    pkgs.yt-dlp
+  # Import common macOS configuration
+  imports = [
+    ../darwin-common.nix
+    ../darwin-homebrew.nix
+    ../roles/development.nix
+    ../roles/media.nix
   ];
 
-  # Homebrew, managed by Nix
-  ##########################
-  homebrew = {
-    enable = true;
-    onActivation.cleanup = "uninstall";
-    taps = [
-      "homebrew/homebrew-core"
-      "homebrew/homebrew-cask"
-    ];
-    brews = [
-      "libyaml"
-      "postgresql@14"
-      "rbenv"
-      "ruby-build"
-    ];
-    casks = [ 
-      "1password" 
-      "audacity"
-      "balenaetcher"
-      "boltai"
-      "caffeine"
-      "calibre"
-      "claude"
-      "cleanshot"
-      "cyberduck"
-      "discord"
-      "firefox"
-      "font-atkinson-hyperlegible"
-      "font-jetbrains-mono-nerd-font"
-      "google-chrome"
-      "imageoptim"
-      "jordanbaird-ice"
-      "ledger-live"
-      "macwhisper"
-      "mochi"
-      "mullvadvpn"
-      "notion"
-      "obsidian"
-      "plexamp" 
-      "raycast"
-      "screen-studio"
-      "signal"
-      "slack"
-      "splice"
-      "spotify"
-      "steam"
-      "tailscale"
-      "telegram"
-      "transmission"
-      "ultimate-vocal-remover"
-      "visual-studio-code"
-      "vlc"
-    ];
-    masApps = {
-      Adblock = 1402042596;
-      Copilot = 1447330651;
-      MacFamilyTree = 1567970985;
-      Noir = 1592917505;
-      PixelmatorPro = 1289583905;
-      OnePasswordExtension = 1569813296;
-    };
-  };
+  # Host-specific overrides and additions
+  
+  # Host-specific additional Nix packages
+  environment.systemPackages = [
+    pkgs.consul
+  ];
 
-  # System settings
-  #################
+  # Host-specific additional Homebrew casks
+  homebrew.casks = [
+    "ledger-live"
+    "steam"
+  ];
 
-  # Enable Touch ID support
-  security.pam.enableSudoTouchIdAuth = true;
-
-  # system.keyboard.enableKeyMapping = true;
-  # system.keyboard.userKeyMapping = [
-  #   {
-  #     # From: CapsLock (0x700000039)
-  #     HIDKeyboardModifierMappingSrc = 30064771129;
-  #     # To: F18 (0x70000006D)
-  #     HIDKeyboardModifierMappingDst = 30064771181;
-  #   }
-  # ];
-
-  # System settings
-  system.defaults = {
-    loginwindow.LoginwindowText = "REWARD IF LOST: kristian@kristianfreeman.com";
-    screencapture.location = "~/Pictures/Screenshots";
-    screensaver.askForPasswordDelay = 10;
-
-    # Dock
-    dock = {
-      autohide = true;
-      autohide-time-modifier = 0.1;
-      expose-group-by-app = true;
-      mru-spaces = false;
-      show-recents = false;
-      static-only = true;
-    };
-
-    finder = {
-      AppleShowAllExtensions = true;
-      FXPreferredViewStyle = "clmv";
-    };
-
-    NSGlobalDomain = { 
-      # Fix trackpad scroll direction
-      "com.apple.swipescrolldirection" = false;
-      ApplePressAndHoldEnabled = false;
-
-      InitialKeyRepeat = 10;
-      KeyRepeat = 1;
-    };
-
-    spaces.spans-displays = true;
-  };
-
-  home-manager.users.kristian.programs.zsh = {
-    initExtra = ''
-      eval "$(/opt/homebrew/bin/brew shellenv)"
-    '';
+  # Host-specific additional Mac App Store apps
+  homebrew.masApps = {
+    MacFamilyTree = 1567970985;
   };
 }

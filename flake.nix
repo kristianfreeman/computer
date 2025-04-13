@@ -35,7 +35,7 @@
     };
   };
 
-  outputs = inputs @ { self, nix-darwin, nixpkgs, nix-homebrew, homebrew-core, homebrew-cask, home-manager }:
+  outputs = inputs @ { self, nix-darwin, nixpkgs, nix-homebrew, home-manager, ... }:
 
   let
     commonHomeConfig = import ./home/common.nix;
@@ -44,22 +44,22 @@
 
     macBilboConfiguration = { config, pkgs, ... }:
       import ./hosts/bilbo/configuration.nix { 
-        inherit config homebrew-core homebrew-cask pkgs;
+        inherit config pkgs;
       };
 
     drumConfiguration = { config, pkgs, ... }:
       import ./hosts/drum/configuration.nix { 
-        inherit config homebrew-core homebrew-cask pkgs;
+        inherit config pkgs;
       };
 
     macCFConfiguration = { config, pkgs, ... }:
       import ./hosts/cf/configuration.nix { 
-        inherit config homebrew-core homebrew-cask pkgs;
+        inherit config pkgs;
       };
 
     macGandalfConfiguration = { config, pkgs, ... }:
       import ./hosts/gandalf/configuration.nix { 
-        inherit config homebrew-core homebrew-cask pkgs;
+        inherit config pkgs;
       };
 
     nixosConfiguration = { config, pkgs, ... }:
