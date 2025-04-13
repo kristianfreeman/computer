@@ -15,6 +15,6 @@ function za() {
 export LDFLAGS="-L/opt/homebrew/opt/libpq/lib"
 export CPPFLAGS="-I/opt/homebrew/opt/libpq/include"
 
-export PATH="$HOME/.cargo/bin:$PATH"
+export PATH="$HOME/.local/bin:$HOME/.cargo/bin:$PATH"
 
 export NODE_EXTRA_CA_CERTS="$HOME/Library/Application Support/Caddy/certificates/local/localhost/localhost.crt"
