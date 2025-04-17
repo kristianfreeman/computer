@@ -7,6 +7,7 @@
     "audacity"
     "calibre"
     "macwhisper"
+    "musicbrainz-picard"
     "plexamp"
     "sonos"
     "splice"
