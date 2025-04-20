@@ -22,6 +22,7 @@ in
 
   # Host-specific Homebrew casks
   homebrew.casks = [
+    "blender"
     "plex-media-server"
   ];
 

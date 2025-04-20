@@ -8,8 +8,9 @@
     "postgresql@14"
     "rbenv"
     "ruby-build"
+    "uv"
   ];
-  
+
   # Development casks
   homebrew.casks = [
     "balenaetcher"
@@ -30,13 +31,13 @@
     "telegram"
     "visual-studio-code"
   ];
-  
+
   # Developer-focused Mac App Store apps
   homebrew.masApps = {
     Adblock = 1402042596;
     Copilot = 1447330651;
   };
-  
+
   # Development tools via Nix
   environment.systemPackages = [
     pkgs.aerospace
