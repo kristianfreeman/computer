@@ -24,6 +24,7 @@ in
   homebrew.casks = [
     "blender"
     "plex-media-server"
+    "unity-hub"
   ];
 
   # Host-specific Mac App Store apps
