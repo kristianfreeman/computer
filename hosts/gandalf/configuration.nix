@@ -8,6 +8,7 @@ in
     ../darwin-common.nix
     ../darwin-homebrew.nix
     ../roles/development.nix
+    ../roles/gamedev.nix
     ../roles/media.nix
     ../roles/music.nix
   ];
@@ -22,9 +23,8 @@ in
 
   # Host-specific Homebrew casks
   homebrew.casks = [
-    "blender"
+    "musicbrainz-picard"
     "plex-media-server"
-    "unity-hub"
   ];
 
   # Host-specific Mac App Store apps
