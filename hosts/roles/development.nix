@@ -4,6 +4,7 @@
 {
   # Development tools via Homebrew
   homebrew.brews = [
+    "git-filter-repo"
     "libyaml"
     "postgresql@14"
     "rbenv"
