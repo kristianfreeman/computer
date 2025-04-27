@@ -16,6 +16,7 @@
   homebrew.casks = [
     "balenaetcher"
     "boltai"
+    "chatgpt"
     "claude"
     "cleanshot"
     "cyberduck"
