@@ -23,6 +23,7 @@ in
 
   # Host-specific Homebrew casks
   homebrew.casks = [
+    "ledger-live"
     "musicbrainz-picard"
     "plex-media-server"
   ];
