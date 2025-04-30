@@ -9,5 +9,8 @@ in
     ../roles/development.nix
   ];
 
+  homebrew.brews = [
+    "vips"
+  ];
   homebrew.casks = [];
 }
