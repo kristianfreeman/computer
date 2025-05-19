@@ -5,6 +5,7 @@
   # Development tools via Homebrew
   homebrew.brews = [
     "git-filter-repo"
+    "gh"
     "libyaml"
     "postgresql@14"
     "rbenv"
@@ -47,7 +48,6 @@
     pkgs.caddy
     pkgs.cloc
     pkgs.ffmpeg
-    pkgs.gh
     pkgs.heroku
     pkgs.hugo
     pkgs.neofetch
