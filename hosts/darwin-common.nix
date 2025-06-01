@@ -2,8 +2,6 @@
 { config, pkgs, ... }:
 
 {
-  # Default settings from nix-darwin
-  services.nix-daemon.enable = true;
   nix.settings.experimental-features = "nix-command flakes";
   nix.extraOptions = ''
     extra-platforms = x86_64-darwin aarch64-darwin
@@ -12,13 +10,12 @@
   nixpkgs.config.allowUnfree = true;
   nixpkgs.hostPlatform = "aarch64-darwin";
 
+  system.primaryUser = "kristian";
+
   users.users.kristian = {
     name = "kristian";
     home = "/Users/kristian";
   };
-
-  # Enable Touch ID support
-  security.pam.enableSudoTouchIdAuth = true;
 
   # System settings
   system.defaults = {
@@ -50,7 +47,8 @@
       KeyRepeat = 1;
     };
 
-    spaces.spans-displays = true;
+    # Turn on stage manager
+    WindowManager.GloballyEnabled = true;
   };
 
   # Common homebrew shell initialization

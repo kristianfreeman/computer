@@ -61,10 +61,6 @@ in
     recursive = true;
   };
 
-  home.file.".aerospace.toml" = {
-    source = ./aerospace.toml;
-  };
-
   home.file.".editorconfig" = {
     source = ./editorconfig;
     recursive = true;
@@ -135,7 +131,7 @@ in
     shellAliases = {
       vi = "nvim";
       vim = "nvim";
-      switch = if pkgs.stdenv.isDarwin then "darwin-rebuild switch --flake ~/.config/nix" else "sudo nixos-rebuild switch --flake /etc/nixos";
+      switch = if pkgs.stdenv.isDarwin then "sudo darwin-rebuild switch --flake ~/.config/nix" else "sudo nixos-rebuild switch --flake /etc/nixos";
     };
     oh-my-zsh = {
       enable = true;

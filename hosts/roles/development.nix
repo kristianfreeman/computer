@@ -18,7 +18,6 @@
     "balenaetcher"
     "boltai"
     "chatgpt"
-    "claude"
     "cleanshot"
     "cyberduck"
     "discord"
@@ -43,14 +42,16 @@
 
   # Development tools via Nix
   environment.systemPackages = [
-    pkgs.aerospace
     pkgs.bundix
     pkgs.caddy
     pkgs.cloc
     pkgs.ffmpeg
+    pkgs.fswatch
+    pkgs.gh
     pkgs.heroku
     pkgs.hugo
     pkgs.neofetch
+    pkgs.nodePackages."npm-check-updates"
     pkgs.pnpm
     pkgs.rclone
     pkgs.solana-cli

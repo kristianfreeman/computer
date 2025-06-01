@@ -17,10 +17,12 @@
       "homebrew/homebrew-core"
       "homebrew/homebrew-cask"
     ];
-    
+
     # Common brews across all macs (can be overridden in host-specific configs)
-    brews = [];
-    
+    brews = [
+      "mas"
+    ];
+
     # Common casks across all macs
     casks = [ 
       "1password" 
@@ -44,11 +46,10 @@
       OnePasswordExtension = 1569813296;
     };
   };
-  
+
   # Common Nix packages for all macOS hosts
   environment.systemPackages = [
     pkgs._1password-cli
-    pkgs.mas
     pkgs.yt-dlp
   ];
 }

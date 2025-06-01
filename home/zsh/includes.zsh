@@ -12,6 +12,12 @@ function za() {
   zellij attach "$session_name" || zellij -s "$session_name"
 }
 
+# Batocera functions
+BATOCERA_SSH_COMMAND="ssh root@batocera.local"
+function batocera-reboot() {
+  ssh root@batocera.local "batocera-es-swissknife --reboot"
+}
+
 export LDFLAGS="-L/opt/homebrew/opt/libpq/lib"
 export CPPFLAGS="-I/opt/homebrew/opt/libpq/include"
 

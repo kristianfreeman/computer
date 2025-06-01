@@ -667,13 +667,9 @@ require("lazy").setup({
         end,
       },
       {
-        "catppuccin/nvim",
-        name = "catppuccin",
+        "dasupradyumna/midnight.nvim",
+        lazy = false,
         priority = 1000,
-        init = function()
-          require("catppuccin").setup()
-          vim.cmd.colorscheme("catppuccin")
-        end,
       },
     },
     config = function()

@@ -5,7 +5,7 @@ macos-icon = custom-style
 macos-option-as-alt = true
 # macos-titlebar-style = hidden
 
-theme = dark:catppuccin-mocha,light:catppuccin-latte
+theme = dark:ir_black,light:catppuccin-latte
 
 window-padding-x = 3
 window-padding-y = 3
