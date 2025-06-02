@@ -13,5 +13,6 @@
   # Music production tools via Nix
   environment.systemPackages = [
     pkgs.id3v2
+    pkgs.juce
   ];
 }

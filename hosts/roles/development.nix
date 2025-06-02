@@ -45,6 +45,7 @@
     pkgs.bundix
     pkgs.caddy
     pkgs.cloc
+    pkgs.cmake
     pkgs.ffmpeg
     pkgs.fswatch
     pkgs.gh
