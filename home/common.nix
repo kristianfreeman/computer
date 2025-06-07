@@ -79,6 +79,7 @@ in
   # Programs with no config
   programs.bat.enable = true;
   programs.btop.enable = true;
+  programs.direnv.enable = true;
   programs.fzf.enable = true;
   programs.jq.enable = true;
   programs.zoxide.enable = true;
@@ -103,11 +104,6 @@ in
       init.defaultBranch = "main";
       push.autoSetupRemote = true;
     };
-  };
-
-  programs.mise = {
-    enable = true;
-    enableZshIntegration = true;
   };
 
   programs.vscode = {
