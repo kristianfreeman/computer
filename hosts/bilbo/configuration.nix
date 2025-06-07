@@ -21,6 +21,7 @@ in
 
   # Host-specific additional Homebrew casks
   homebrew.casks = [
+    "bambu-studio"
     "capcut"
     "ledger-live"
     "steam"
