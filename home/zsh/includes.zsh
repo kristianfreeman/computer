@@ -12,6 +12,10 @@ function za() {
   zellij attach "$session_name" || zellij -s "$session_name"
 }
 
+function pcat() {
+  cat "$1" | pbcopy
+}
+
 # Batocera functions
 BATOCERA_SSH_COMMAND="ssh root@batocera.local"
 function batocera-reboot() {

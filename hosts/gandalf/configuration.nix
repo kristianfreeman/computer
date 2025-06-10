@@ -26,6 +26,7 @@ in
     "battle-net"
     "ledger-live"
     "musicbrainz-picard"
+    "parsec"
     "plex-media-server"
   ];
 

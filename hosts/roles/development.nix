@@ -15,6 +15,7 @@
 
   # Development casks
   homebrew.casks = [
+    "amazon-q"
     "balenaetcher"
     "boltai"
     "chatgpt"
