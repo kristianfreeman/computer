@@ -35,12 +35,6 @@
       "recut"
       "the-unarchiver"
     ];
-
-    # Common Mac App Store apps
-    masApps = {
-      Noir = 1592917505;
-      OnePasswordExtension = 1569813296;
-    };
   };
 
   # Common Nix packages for all macOS hosts

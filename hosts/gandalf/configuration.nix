@@ -30,13 +30,6 @@ in
     "plex-media-server"
   ];
 
-  # Host-specific Mac App Store apps
-  homebrew.masApps = {
-    FinalCutPro = 424389933;
-    MacFamilyTree = 1567970985;
-    Parcel = 639968404;
-  };
-  
   # Host-specific Nix packages
   environment.systemPackages = [
     pkgs.goku

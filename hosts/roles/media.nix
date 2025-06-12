@@ -15,12 +15,7 @@
     "ultimate-vocal-remover"
     "vlc"
   ];
-  
-  # Media-focused Mac App Store apps
-  homebrew.masApps = {
-    PixelmatorPro = 1289583905;
-  };
-  
+
   # Media tools via Nix
   environment.systemPackages = [
     pkgs.ffmpeg

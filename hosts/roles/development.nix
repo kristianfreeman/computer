@@ -34,12 +34,6 @@
     "telegram"
   ];
 
-  # Developer-focused Mac App Store apps
-  homebrew.masApps = {
-    Adblock = 1402042596;
-    Copilot = 1447330651;
-  };
-
   # Development tools via Nix
   environment.systemPackages = [
     pkgs.bundix

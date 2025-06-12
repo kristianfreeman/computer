@@ -11,6 +11,5 @@
     "unity-hub"
   ];
 
-  homebrew.masApps = {};
   environment.systemPackages = [];
 }

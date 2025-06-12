@@ -26,9 +26,4 @@ in
     "ledger-live"
     "steam"
   ];
-
-  # Host-specific additional Mac App Store apps
-  homebrew.masApps = {
-    MacFamilyTree = 1567970985;
-  };
 }
