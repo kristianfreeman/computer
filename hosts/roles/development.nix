@@ -32,7 +32,6 @@
     "slack"
     "tailscale"
     "telegram"
-    "visual-studio-code"
   ];
 
   # Developer-focused Mac App Store apps
