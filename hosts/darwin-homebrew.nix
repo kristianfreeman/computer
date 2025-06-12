@@ -13,10 +13,6 @@
   homebrew = {
     enable = true;
     onActivation.cleanup = "uninstall";
-    taps = [
-      "homebrew/homebrew-core"
-      "homebrew/homebrew-cask"
-    ];
 
     # Common brews across all macs (can be overridden in host-specific configs)
     brews = [

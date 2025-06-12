@@ -76,6 +76,11 @@ in
     recursive = true;
   };
 
+  home.file.".npmrc" = {
+    source = ./npmrc;
+    recursive = true;
+  };
+
   # Programs with no config
   programs.bat.enable = true;
   programs.btop.enable = true;
@@ -104,14 +109,6 @@ in
       init.defaultBranch = "main";
       push.autoSetupRemote = true;
     };
-  };
-
-  programs.vscode = {
-    enable = true;
-    extensions = with pkgs.vscode-extensions; [
-      astro-build.astro-vscode
-      catppuccin.catppuccin-vsc
-    ];
   };
 
   programs.zellij = {
