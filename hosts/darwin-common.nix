@@ -5,6 +5,7 @@
   nix.enable = false;
   nix.settings.experimental-features = "nix-command flakes";
   nix.extraOptions = ''
+    experimental-features = flakes nix-command
     extra-platforms = x86_64-darwin aarch64-darwin
   '';
   system.stateVersion = 5;
