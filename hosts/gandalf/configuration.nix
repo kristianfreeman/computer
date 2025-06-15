@@ -27,7 +27,6 @@ in
     "ledger-live"
     "musicbrainz-picard"
     "parsec"
-    "plex-media-server"
   ];
 
   # Host-specific Nix packages
