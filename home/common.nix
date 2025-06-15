@@ -27,7 +27,6 @@ in
     nmap
     nodejs
     openssl
-    rbenv
     ripgrep
     ruby_3_3
     rustc
@@ -131,7 +130,6 @@ in
       theme = "sunaku";
       plugins = [
         "fzf"
-        "rbenv"
         "starship"
         "zoxide"
       ];

@@ -8,8 +8,6 @@
     "gh"
     "libyaml"
     "postgresql@14"
-    "rbenv"
-    "ruby-build"
     "uv"
   ];
 
