@@ -17,6 +17,7 @@ in
   
   # Host-specific Homebrew brews
   homebrew.brews = [
+    "handbrake"
     "libpq"
     "libusb"
   ];
