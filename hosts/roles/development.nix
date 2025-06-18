@@ -43,6 +43,8 @@
     pkgs.gh
     pkgs.heroku
     pkgs.hledger
+    pkgs.hledger-ui
+    pkgs.hledger-web
     pkgs.hugo
     pkgs.neofetch
     pkgs.nodePackages.npm-check-updates
