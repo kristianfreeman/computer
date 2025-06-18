@@ -42,9 +42,10 @@
     pkgs.fswatch
     pkgs.gh
     pkgs.heroku
+    pkgs.hledger
     pkgs.hugo
     pkgs.neofetch
-    pkgs.nodePackages."npm-check-updates"
+    pkgs.nodePackages.npm-check-updates
     pkgs.pnpm
     pkgs.rclone
     pkgs.solana-cli

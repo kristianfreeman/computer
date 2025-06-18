@@ -3,7 +3,6 @@
 let 
 in
 {
-  # Import common macOS configuration
   imports = [
     ../darwin-common.nix
     ../darwin-homebrew.nix
@@ -12,18 +11,18 @@ in
     ../roles/media.nix
   ];
 
-  # Host-specific overrides and additions
-  
-  # Host-specific additional Nix packages
-  environment.systemPackages = [
-    pkgs.consul
+  homebrew.brews = [
+    "handbrake"
   ];
 
-  # Host-specific additional Homebrew casks
   homebrew.casks = [
     "bambu-studio"
     "capcut"
     "ledger-live"
     "steam"
+  ];
+
+  environment.systemPackages = [
+    pkgs.consul
   ];
 }
