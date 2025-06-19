@@ -19,6 +19,7 @@
     "balenaetcher"
     "boltai"
     "chatgpt"
+    "claude"
     "cleanshot"
     "cyberduck"
     "discord"
