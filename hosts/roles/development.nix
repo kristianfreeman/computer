@@ -32,7 +32,6 @@
     "slack"
     "tailscale"
     "telegram"
-    "wkhtmltopdf"
   ];
 
   # Development tools via Nix
