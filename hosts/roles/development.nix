@@ -11,6 +11,8 @@
     "uv"
   ];
 
+  homebrew.taps = [];
+
   # Development casks
   homebrew.casks = [
     "amazon-q"
@@ -30,6 +32,7 @@
     "slack"
     "tailscale"
     "telegram"
+    "wkhtmltopdf"
   ];
 
   # Development tools via Nix

@@ -16,6 +16,7 @@ in
   ];
 
   homebrew.casks = [
+    "anki"
     "bambu-studio"
     "capcut"
     "ledger-live"
