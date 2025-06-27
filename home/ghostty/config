@@ -5,6 +5,7 @@ macos-icon = custom-style
 macos-option-as-alt = true
 # macos-titlebar-style = hidden
 
+custom_shader = "cursor_smear.glsl"
 theme = dark:catppuccin-mocha,light:catppuccin-latte
 
 window-padding-x = 3

@@ -7,7 +7,7 @@ in
     ../darwin-common.nix
     ../darwin-homebrew.nix
     ../roles/development.nix
-    ../roles/gamedev.nix
+    ../roles/games.nix
     ../roles/media.nix
   ];
 

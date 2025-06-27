@@ -3,12 +3,10 @@
 
 {
   homebrew.brews = [
-    "git-lfs"
   ];
 
   homebrew.casks = [
-    "blender"
-    "unity-hub"
+    "steam"
   ];
 
   environment.systemPackages = [];
