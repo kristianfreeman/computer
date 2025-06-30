@@ -32,6 +32,9 @@ vim.schedule(function()
   vim.opt.clipboard = "unnamedplus"
 end)
 
+-- Folding
+vim.opt.foldmethod = "marker"
+
 -- Enforce tabs as 2 spaces
 vim.opt.expandtab = true
 vim.opt.shiftwidth = 2

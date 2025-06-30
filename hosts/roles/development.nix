@@ -44,6 +44,7 @@
     pkgs.ffmpeg
     pkgs.fswatch
     pkgs.gh
+    pkgs.helix
     pkgs.heroku
     pkgs.hledger
     pkgs.hledger-ui
@@ -51,6 +52,7 @@
     pkgs.hugo
     pkgs.neofetch
     pkgs.nodePackages.npm-check-updates
+    pkgs.pandoc
     pkgs.pnpm
     pkgs.rclone
     pkgs.solana-cli

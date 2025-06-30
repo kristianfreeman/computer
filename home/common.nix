@@ -55,6 +55,11 @@ in
     recursive = true;
   };
 
+  home.file.".config/helix/config.toml" = {
+    source = ./helix/config.toml;
+    recursive = true;
+  };
+
   home.file.".config/nvim" = {
     source = ./nvim;
     recursive = true;
@@ -72,6 +77,11 @@ in
 
   home.file.".config/btop" = {
     source = ./btop;
+    recursive = true;
+  };
+
+  home.file.".config/stig/rc" = {
+    source = ./stig/rc;
     recursive = true;
   };
 
@@ -107,6 +117,13 @@ in
     extraConfig = {
       init.defaultBranch = "main";
       push.autoSetupRemote = true;
+    };
+  };
+
+  programs.yazi = {
+    enable = true;
+    settings = {
+      theme = "catppuccin-mocha";
     };
   };
 
