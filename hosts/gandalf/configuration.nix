@@ -25,6 +25,7 @@ in
   # Host-specific Homebrew casks
   homebrew.casks = [
     "battle-net"
+    "blender"
     "ledger-live"
     "musicbrainz-picard"
     "parsec"

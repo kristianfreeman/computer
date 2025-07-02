@@ -13,7 +13,11 @@ in
     ao = "exec $SHELL -l";
     cat = "bat --theme catppuccin-mocha";
     ls = "eza --group-directories-first";
+    nvim = "hx";
     tree = "eza --group-directories-first --tree";
+    switch = if pkgs.stdenv.isDarwin then "sudo darwin-rebuild switch --flake ~/.config/nix" else "sudo nixos-rebuild switch --flake /etc/nixos";
+    vim = "hx";
+    vi = "hx";
   };
 
   # Shared home packages
@@ -138,9 +142,6 @@ in
     enable = true;
     initExtra = "source ${./zsh/includes.zsh}";  # Assumes zsh config stored outside this file.
     shellAliases = {
-      vi = "nvim";
-      vim = "nvim";
-      switch = if pkgs.stdenv.isDarwin then "sudo darwin-rebuild switch --flake ~/.config/nix" else "sudo nixos-rebuild switch --flake /etc/nixos";
     };
     oh-my-zsh = {
       enable = true;
