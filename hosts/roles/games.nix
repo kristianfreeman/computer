@@ -7,6 +7,7 @@
 
   homebrew.casks = [
     "steam"
+    "steam-link"
   ];
 
   environment.systemPackages = [];

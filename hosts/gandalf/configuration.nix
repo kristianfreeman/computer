@@ -27,8 +27,8 @@ in
     "battle-net"
     "blender"
     "ledger-live"
-    "musicbrainz-picard"
     "parsec"
+    "unity-hub"
   ];
 
   # Host-specific Nix packages

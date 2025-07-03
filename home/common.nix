@@ -13,7 +13,6 @@ in
     ao = "exec $SHELL -l";
     cat = "bat --theme catppuccin-mocha";
     ls = "eza --group-directories-first";
-    nvim = "hx";
     tree = "eza --group-directories-first --tree";
     switch = if pkgs.stdenv.isDarwin then "sudo darwin-rebuild switch --flake ~/.config/nix" else "sudo nixos-rebuild switch --flake /etc/nixos";
     vim = "hx";
