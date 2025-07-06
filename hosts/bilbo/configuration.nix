@@ -21,6 +21,7 @@ in
     "capcut"
     "ledger-live"
     "steam"
+    "unity-hub"
   ];
 
   environment.systemPackages = [
