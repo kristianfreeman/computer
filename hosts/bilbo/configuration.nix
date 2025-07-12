@@ -12,12 +12,14 @@ in
   ];
 
   homebrew.brews = [
+    "dotnet"
     "handbrake"
   ];
 
   homebrew.casks = [
     "anki"
     "bambu-studio"
+    "blender"
     "capcut"
     "ledger-live"
     "steam"
