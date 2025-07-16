@@ -29,7 +29,7 @@
     dock = {
       autohide = true;
       autohide-time-modifier = 0.1;
-      expose-group-by-app = true;
+      expose-group-apps = true;
       mru-spaces = false;
       show-recents = false;
       static-only = true;
