@@ -6,6 +6,7 @@
   homebrew.casks = [
     "audacity"
     "calibre"
+    "feishin"
     "macwhisper"
     "plexamp"
     "sonos"

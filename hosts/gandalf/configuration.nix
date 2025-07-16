@@ -36,5 +36,6 @@ in
     pkgs.goku
     pkgs.imagemagick
     pkgs.ruby_3_3
+    pkgs.termusic
   ];
 }
