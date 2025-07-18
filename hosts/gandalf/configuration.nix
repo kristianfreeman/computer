@@ -26,6 +26,7 @@ in
   homebrew.casks = [
     "battle-net"
     "blender"
+    "docker"
     "ledger-live"
     "parsec"
     "unity-hub"
