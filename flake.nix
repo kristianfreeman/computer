@@ -34,9 +34,11 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    nur.url = "github:nix-community/NUR";
   };
 
-  outputs = inputs @ { self, nix-darwin, nixpkgs, nix-homebrew, home-manager, ... }:
+  outputs = inputs @ { self, nix-darwin, nixpkgs, nix-homebrew, home-manager, nur, ... }:
 
   let
     commonHomeConfig = import ./home/common.nix;
@@ -77,12 +79,16 @@
         # ({ config, pkgs, ... }: {
         #   system.configurationRevision = self.rev or self.dirtyRev or null;
         # })
+        ({ config, pkgs, ... }: {
+          nixpkgs.overlays = [ nur.overlays.default ];
+        })
         macBilboConfiguration
         nix-homebrew.darwinModules.nix-homebrew
         home-manager.darwinModules.home-manager {
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
           home-manager.verbose = true;
+          home-manager.backupFileExtension = "backup";
           home-manager.users.kristian = commonHomeConfig;
         }
       ];
@@ -94,12 +100,16 @@
         # ({ config, pkgs, ... }: {
         #   system.configurationRevision = self.rev or self.dirtyRev or null;
         # })
+        ({ config, pkgs, ... }: {
+          nixpkgs.overlays = [ nur.overlays.default ];
+        })
         drumConfiguration
         nix-homebrew.darwinModules.nix-homebrew
         home-manager.darwinModules.home-manager {
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
           home-manager.verbose = true;
+          home-manager.backupFileExtension = "backup";
           home-manager.users.kristian = commonHomeConfig;
         }
       ];
@@ -111,12 +121,16 @@
         # ({ config, pkgs, ... }: {
         #   system.configurationRevision = self.rev or self.dirtyRev or null;
         # })
+        ({ config, pkgs, ... }: {
+          nixpkgs.overlays = [ nur.overlays.default ];
+        })
         macGandalfConfiguration
         nix-homebrew.darwinModules.nix-homebrew
         home-manager.darwinModules.home-manager {
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
           home-manager.verbose = true;
+          home-manager.backupFileExtension = "backup";
           home-manager.users.kristian = commonHomeConfig;
         }
       ];
@@ -128,12 +142,16 @@
         # ({ config, pkgs, ... }: {
         #   system.configurationRevision = self.rev or self.dirtyRev or null;
         # })
+        ({ config, pkgs, ... }: {
+          nixpkgs.overlays = [ nur.overlays.default ];
+        })
         macCFConfiguration
         nix-homebrew.darwinModules.nix-homebrew
         home-manager.darwinModules.home-manager {
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
           home-manager.verbose = true;
+          home-manager.backupFileExtension = "backup";
           home-manager.users.kristian = commonHomeConfig;
         }
       ];
@@ -149,6 +167,7 @@
         home-manager.nixosModules.home-manager {
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
+          home-manager.backupFileExtension = "backup";
           home-manager.users.kristian = commonHomeConfig;
         }
       ];

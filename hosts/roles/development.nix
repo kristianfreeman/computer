@@ -23,7 +23,6 @@
     "cleanshot"
     "cyberduck"
     "discord"
-    "firefox"
     "google-chrome"
     "imageoptim"
     "notion"
