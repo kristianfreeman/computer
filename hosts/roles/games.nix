@@ -9,5 +9,7 @@
     "steam"
   ];
 
-  environment.systemPackages = [];
+  environment.systemPackages = [
+    pkgs.tweego
+  ];
 }

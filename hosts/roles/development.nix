@@ -22,6 +22,7 @@
     "claude"
     "cleanshot"
     "cyberduck"
+    "docker"
     "discord"
     "google-chrome"
     "imageoptim"
@@ -36,6 +37,7 @@
 
   # Development tools via Nix
   environment.systemPackages = [
+    pkgs.act
     pkgs.bundix
     pkgs.caddy
     pkgs.cloc
