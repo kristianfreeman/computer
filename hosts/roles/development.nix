@@ -49,6 +49,7 @@
     pkgs.hledger-ui
     pkgs.hledger-web
     pkgs.hugo
+    pkgs.mpv
     pkgs.neofetch
     pkgs.nodePackages.npm-check-updates
     pkgs.pandoc
