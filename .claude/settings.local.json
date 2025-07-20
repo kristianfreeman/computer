@@ -3,8 +3,21 @@
     "allow": [
       "Bash(nix search:*)",
       "Bash(mv:*)",
-      "WebFetch(domain:github.com)"
+      "WebFetch(domain:github.com)",
+      "Bash(rg:*)",
+      "Bash(scutil:*)",
+      "Bash(hostname)",
+      "Bash(brew cleanup:*)",
+      "Bash(ls:*)",
+      "Bash(brew list:*)",
+      "Bash(brew info:*)",
+      "Bash(find:*)",
+      "Bash(brew uninstall:*)",
+      "Bash(nix flake update:*)",
+      "Bash(brew install:*)",
+      "Bash(brew search:*)"
     ],
     "deny": []
-  }
+  },
+  "enableAllProjectMcpServers": false
 }

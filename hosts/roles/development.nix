@@ -22,7 +22,6 @@
     "claude"
     "cleanshot"
     "cyberduck"
-    "docker"
     "discord"
     "google-chrome"
     "imageoptim"
@@ -31,7 +30,6 @@
     "screen-studio"
     "signal"
     "slack"
-    "tailscale"
     "telegram"
   ];
 
