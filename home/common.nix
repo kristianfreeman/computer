@@ -64,6 +64,11 @@ in
     recursive = true;
   };
 
+  home.file.".config/helix/languages.toml" = {
+    source = ./helix/languages.toml;
+    recursive = true;
+  };
+
   home.file.".config/nvim" = {
     source = ./nvim;
     recursive = true;

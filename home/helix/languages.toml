@@ -1,0 +1,10 @@
+[language-server.ledger-ls]
+command = "ledger-language-server"
+
+[[language]]
+name = "ledger"
+scope = "source.ledger"
+file-types = ["ledger", "journal", "hledger", { glob = "*.journal" }, { glob = "*.hledger" }]
+comment-token = ";"
+indent = { tab-width = 4, unit = "    " }
+language-servers = ["ledger-ls"]

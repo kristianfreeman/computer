@@ -55,6 +55,7 @@
     pkgs.nodePackages.npm-check-updates
     pkgs.pandoc
     pkgs.pnpm
+    pkgs.pipx
     pkgs.rclone
     pkgs.solana-cli
   ];
