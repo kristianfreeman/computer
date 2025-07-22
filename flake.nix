@@ -66,7 +66,7 @@
       };
 
     nixosConfiguration = { config, pkgs, ... }:
-      import ./hosts/sauron/configuration.nix {
+      import ./hosts/nas/configuration.nix {
         inherit config pkgs;
       };
   in
@@ -160,10 +160,10 @@
     # Expose the package set, including overlays, for convenience.
     darwinPackages = self.darwinConfigurations.bilbo.pkgs;
 
-    nixosConfigurations.sauron = nixpkgs.lib.nixosSystem {
+    nixosConfigurations.nas = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       modules = [
-        nixosConfiguration
+        nasConfiguration
         home-manager.nixosModules.home-manager {
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
