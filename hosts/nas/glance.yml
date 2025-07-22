@@ -1,0 +1,268 @@
+theme:
+  background-color: 50 1 6
+  primary-color: 24 97 58
+  negative-color: 209 88 54
+
+pages:
+  - name: Home
+    columns:
+      - size: small
+        widgets:
+          - type: calendar
+            first-day-of-week: monday
+
+          - type: weather
+            location: San Marcos, Texas, United States
+            units: imperial
+            hour-format: 12h
+
+          - type: monitor
+            title: Infrastructure
+            cache: 1m
+            sites:
+              - title: TrueNAS
+                url: http://192.168.68.74
+                icon: mdi:nas
+              - title: Proxmox VE
+                url: https://192.168.68.222:8006
+                icon: mdi:server
+                allow-insecure: true
+
+      - size: full
+        widgets:
+          - type: group
+            widgets:
+              - type: hacker-news
+                limit: 15
+                collapse-after: 5
+              - type: lobsters
+                limit: 15
+                collapse-after: 5
+
+          - type: clock
+            title: World Time
+            hour-format: 12h
+            timezones:
+              - timezone: America/Chicago
+                label: Central Time
+              - timezone: Asia/Manila
+                label: Philippines
+              - timezone: Europe/Amsterdam
+                label: Amsterdam
+              - timezone: Europe/Berlin
+                label: Germany
+              - timezone: Europe/London
+                label: London
+
+          - type: monitor
+            title: Media Services
+            cache: 30s
+            sites:
+              - title: Jellyfin
+                url: http://192.168.68.74:8096/web/
+                icon: si:jellyfin
+              - title: Jellyseerr
+                url: http://192.168.68.74:30042
+                icon: mdi:jellyfish
+              - title: Navidrome
+                url: http://192.168.68.74:30043
+                icon: mdi:music
+              - title: Bazarr
+                url: http://192.168.68.74:30046
+                icon: mdi:message
+              - title: Radarr
+                url: http://192.168.68.74:30025
+                icon: si:radarr
+              - title: Koito
+                url: http://192.168.68.74:4110
+                icon: mdi:account-music
+
+          - type: monitor
+            title: Home Automation
+            cache: 30s
+            sites:
+              - title: Homebridge
+                url: http://192.168.68.79:8581
+                icon: mdi:home-automation
+              - title: Scrypted
+                url: https://192.168.68.69:10443
+                icon: mdi:cctv
+                allow-insecure: true
+
+      - size: small
+        widgets:
+          - type: bookmarks
+            title: Quick Links
+            groups:
+              - title: Infrastructure
+                links:
+                  - title: Proxmox VE
+                    url: https://192.168.68.222:8006
+                    icon: mdi:server
+                  - title: TrueNAS
+                    url: http://192.168.68.74
+                    icon: mdi:nas
+                  - title: Nginx Proxy Manager
+                    url: http://192.168.68.93:81
+                    icon: mdi:server-network
+                  - title: Glance
+                    url: http://192.168.68.74:8080
+                    icon: mdi:view-dashboard
+                  - title: n8n
+                    url: https://192.168.68.70
+                    icon: si:n8n
+
+              - title: Media & Entertainment
+                links:
+                  - title: Jellyfin
+                    url: http://192.168.68.74:8096/web/
+                    icon: si:jellyfin
+                  - title: Jellyseerr
+                    url: http://192.168.68.74:30042
+                    icon: mdi:jellyfish
+                  - title: Navidrome
+                    url: http://192.168.68.74:30043
+                    icon: mdi:music
+                  - title: Radarr
+                    url: http://192.168.68.74:30025
+                    icon: si:radarr
+                  - title: Bazarr
+                    url: http://192.168.68.74:30046
+                    icon: mdi:message
+                  - title: Prowlarr
+                    url: http://192.168.68.74:30050
+                    icon: mdi:magnify
+                  - title: Transmission
+                    url: http://192.168.68.74:30096
+                    icon: si:transmission
+                  - title: Deluge
+                    url: http://192.168.68.74:8112
+                    icon: si:deluge
+                  - title: Podgrab
+                    url: http://192.168.68.74:8081
+                    icon: mdi:podcast
+                  - title: Koito
+                    url: http://192.168.68.74:4110
+                    icon: mdi:account-music
+
+              - title: Home Automation
+                links:
+                  - title: Homebridge
+                    url: http://192.168.68.79:8581
+                    icon: mdi:home-automation
+                  - title: Scrypted
+                    url: https://192.168.68.69:10443
+                    icon: mdi:cctv
+
+              - title: Utilities & Personal
+                links:
+                  - title: Grocy
+                    url: http://192.168.68.95
+                    icon: mdi:food-apple
+                  - title: Teslamate
+                    url: http://192.168.68.54:3000
+                    icon: si:tesla
+                  - title: PairDrop
+                    url: http://192.168.68.100:3000
+                    icon: mdi:share
+                  - title: Gramps Web
+                    url: http://192.168.68.74:30179
+                    icon: mdi:family-tree
+                  - title: Syncthing
+                    url: http://192.168.68.74:20978
+                    icon: si:syncthing
+
+  - name: All Services
+    columns:
+      - size: full
+        widgets:
+          - type: monitor
+            title: Infrastructure & Management
+            cache: 30s
+            sites:
+              - title: Proxmox VE
+                url: https://192.168.68.222:8006
+                icon: mdi:server
+                allow-insecure: true
+              - title: TrueNAS
+                url: http://192.168.68.74
+                icon: mdi:nas
+              - title: Nginx Proxy Manager
+                url: http://192.168.68.93:81
+                icon: mdi:server-network
+              - title: Glance
+                url: http://192.168.68.74:8080
+                icon: mdi:view-dashboard
+              - title: n8n
+                url: https://192.168.68.70
+                icon: si:n8n
+                allow-insecure: true
+
+          - type: monitor
+            title: Home Automation
+            cache: 30s
+            sites:
+              - title: Homebridge
+                url: http://192.168.68.79:8581
+                icon: mdi:home-automation
+              - title: Scrypted
+                url: https://192.168.68.69:10443
+                icon: mdi:cctv
+                allow-insecure: true
+
+      - size: full
+        widgets:
+          - type: monitor
+            title: Media & Entertainment
+            cache: 30s
+            sites:
+              - title: Jellyfin
+                url: http://192.168.68.74:8096/web/
+                icon: si:jellyfin
+              - title: Jellyseerr
+                url: http://192.168.68.74:30042
+                icon: mdi:jellyfish
+              - title: Navidrome
+                url: http://192.168.68.74:30043
+                icon: mdi:music
+              - title: Radarr
+                url: http://192.168.68.74:30025
+                icon: si:radarr
+              - title: Bazarr
+                url: http://192.168.68.74:30046
+                icon: mdi:message
+              - title: Prowlarr
+                url: http://192.168.68.74:30050
+                icon: mdi:magnify
+              - title: Transmission
+                url: http://192.168.68.74:30096
+                icon: si:transmission
+              - title: Deluge
+                url: http://192.168.68.74:8112
+                icon: si:deluge
+              - title: Podgrab
+                url: http://192.168.68.74:8081
+                icon: mdi:podcast
+              - title: Koito
+                url: http://192.168.68.74:4110
+                icon: mdi:account-music
+
+          - type: monitor
+            title: Utilities & Personal
+            cache: 30s
+            sites:
+              - title: Grocy
+                url: http://192.168.68.95
+                icon: mdi:food-apple
+              - title: Teslamate
+                url: http://192.168.68.54:3000
+                icon: si:tesla
+              - title: PairDrop
+                url: http://192.168.68.100:3000
+                icon: mdi:share
+              - title: Gramps Web
+                url: http://192.168.68.74:30179
+                icon: mdi:family-tree
+              - title: Syncthing
+                url: http://192.168.68.74:20978
+                icon: si:syncthing

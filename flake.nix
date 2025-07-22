@@ -36,9 +36,14 @@
     };
 
     nur.url = "github:nix-community/NUR";
+
+    sops-nix = {
+      url = "github:Mic92/sops-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs = inputs @ { self, nix-darwin, nixpkgs, nix-homebrew, home-manager, nur, ... }:
+  outputs = inputs @ { self, nix-darwin, nixpkgs, nix-homebrew, home-manager, nur, sops-nix, ... }:
 
   let
     commonHomeConfig = import ./home/common.nix;
@@ -163,6 +168,7 @@
         ({ config, pkgs, ... }: {
           nixpkgs.overlays = [ nur.overlays.default ];
         })
+        sops-nix.nixosModules.sops
         nasConfiguration
         home-manager.nixosModules.home-manager {
           home-manager.useGlobalPkgs = true;
