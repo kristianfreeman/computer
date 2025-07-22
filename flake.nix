@@ -65,10 +65,7 @@
         inherit config pkgs;
       };
 
-    nixosConfiguration = { config, pkgs, ... }:
-      import ./hosts/nas/configuration.nix {
-        inherit config pkgs;
-      };
+    nasConfiguration = ./hosts/nas/configuration.nix;
   in
   {
     # Build darwin flake using:
@@ -160,9 +157,12 @@
     # Expose the package set, including overlays, for convenience.
     darwinPackages = self.darwinConfigurations.bilbo.pkgs;
 
-    nixosConfigurations.nas = nixpkgs.lib.nixosSystem {
+    nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       modules = [
+        ({ config, pkgs, ... }: {
+          nixpkgs.overlays = [ nur.overlays.default ];
+        })
         nasConfiguration
         home-manager.nixosModules.home-manager {
           home-manager.useGlobalPkgs = true;

@@ -27,6 +27,7 @@ in
     devbox
     gh
     gifsicle
+    helix
     neovim
     nmap
     nodejs

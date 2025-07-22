@@ -10,18 +10,23 @@
       ./hardware-configuration.nix
     ];
 
+  nixpkgs.config.allowUnfree = true;
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
   # Zpool config
   boot.supportedFilesystems = [ "zfs" ];
-  networking.hostId = "db5d236d";
+  boot.zfs.extraPools = [ "valhalla" ];
+  
+  # ZFS services
+  services.zfs.autoScrub.enable = true;
+  services.zfs.autoSnapshot.enable = true; # optional
 
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
   # networking.hostName = "nixos"; # Define your hostname.
-
+  networking.hostId = "db5d236d";
   networking.networkmanager.enable = true;  # Easiest to use and most distros use this by default.
 
   # Set your time zone.
