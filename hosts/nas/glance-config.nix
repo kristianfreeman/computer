@@ -2,33 +2,36 @@
 let
   # Extract individual ports
   jellyfinPort = ports.jellyfin;
+  jellyseerrPort = ports.jellyseerr;
   navidromePort = ports.navidrome;
   sonarrPort = ports.sonarr;
   radarrPort = ports.radarr;
   prowlarrPort = ports.prowlarr;
   bazarrPort = ports.bazarr;
-  transmissionPort = ports.transmission;
+  qbittorrentPort = ports.qbittorrent;
   glancePort = ports.glance;
   
   # URL generation based on access style
   urls = if urlStyle == "external" then {
     jellyfin = "https://jellyfin.freemans.house";
+    jellyseerr = "https://requests.freemans.house";
     navidrome = "https://music.freemans.house";
     sonarr = "https://sonarr.freemans.house";
     radarr = "https://radarr.freemans.house";
     prowlarr = "https://prowlarr.freemans.house";
     bazarr = "https://bazarr.freemans.house";
-    transmission = "https://transmission.freemans.house";
+    qbittorrent = "https://qbittorrent.freemans.house";
     glance = "https://nas.freemans.house";
     glanceAlt = "https://freemans.house";
   } else {
     jellyfin = "http://${hostIP}:${toString jellyfinPort}/web/";
+    jellyseerr = "http://${hostIP}:${toString jellyseerrPort}";
     navidrome = "http://${hostIP}:${toString navidromePort}";
     sonarr = "http://${hostIP}:${toString sonarrPort}";
     radarr = "http://${hostIP}:${toString radarrPort}";
     prowlarr = "http://${hostIP}:${toString prowlarrPort}";
     bazarr = "http://${hostIP}:${toString bazarrPort}";
-    transmission = "http://${hostIP}:${toString transmissionPort}";
+    qbittorrent = "http://${hostIP}:${toString qbittorrentPort}";
     glance = "http://${hostIP}";
     glanceAlt = "http://${hostIP}";
   };
@@ -139,7 +142,7 @@ let
                   }
                   {
                     title = "Jellyseerr";
-                    url = "http://${hostIP}:30042";
+                    url = urls.jellyseerr;
                     icon = "mdi:jellyfish";
                   }
                   {
@@ -147,15 +150,21 @@ let
                     url = urls.navidrome;
                     icon = "mdi:music";
                   }
+                ] ++ lib.optionals (urlStyle == "internal") [
                   {
-                    title = "Bazarr";
-                    url = urls.bazarr;
-                    icon = "mdi:message";
+                    title = "Sonarr";
+                    url = urls.sonarr;
+                    icon = "si:sonarr";
                   }
                   {
                     title = "Radarr";
                     url = urls.radarr;
                     icon = "si:radarr";
+                  }
+                  {
+                    title = "Bazarr";
+                    url = urls.bazarr;
+                    icon = "mdi:message";
                   }
                   {
                     title = "Koito";
@@ -228,13 +237,19 @@ let
                       }
                       {
                         title = "Jellyseerr";
-                        url = "http://${hostIP}:30042";
+                        url = urls.jellyseerr;
                         icon = "mdi:jellyfish";
                       }
                       {
                         title = "Navidrome";
                         url = urls.navidrome;
                         icon = "mdi:music";
+                      }
+                    ] ++ lib.optionals (urlStyle == "internal") [
+                      {
+                        title = "Sonarr";
+                        url = urls.sonarr;
+                        icon = "si:sonarr";
                       }
                       {
                         title = "Radarr";
@@ -252,19 +267,9 @@ let
                         icon = "mdi:magnify";
                       }
                       {
-                        title = "Transmission";
-                        url = urls.transmission;
-                        icon = "si:transmission";
-                      }
-                      {
-                        title = "Deluge";
-                        url = "http://${hostIP}:8112";
-                        icon = "si:deluge";
-                      }
-                      {
-                        title = "Podgrab";
-                        url = "http://${hostIP}:8081";
-                        icon = "mdi:podcast";
+                        title = "qBittorrent";
+                        url = urls.qbittorrent;
+                        icon = "si:qbittorrent";
                       }
                       {
                         title = "Koito";
@@ -286,36 +291,6 @@ let
                         title = "Scrypted";
                         url = "https://192.168.68.69:10443";
                         icon = "mdi:cctv";
-                      }
-                    ];
-                  }
-                  {
-                    title = "Utilities & Personal";
-                    links = [
-                      {
-                        title = "Grocy";
-                        url = "http://192.168.68.95";
-                        icon = "mdi:food-apple";
-                      }
-                      {
-                        title = "Teslamate";
-                        url = "http://192.168.68.54:3000";
-                        icon = "si:tesla";
-                      }
-                      {
-                        title = "PairDrop";
-                        url = "http://192.168.68.100:3000";
-                        icon = "mdi:share";
-                      }
-                      {
-                        title = "Gramps Web";
-                        url = "http://${hostIP}:30179";
-                        icon = "mdi:family-tree";
-                      }
-                      {
-                        title = "Syncthing";
-                        url = "http://${hostIP}:20978";
-                        icon = "si:syncthing";
                       }
                     ];
                   }
@@ -401,13 +376,18 @@ let
                   }
                   {
                     title = "Jellyseerr";
-                    url = "http://${hostIP}:30042";
+                    url = urls.jellyseerr;
                     icon = "mdi:jellyfish";
                   }
                   {
                     title = "Navidrome";
                     url = urls.navidrome;
                     icon = "mdi:music";
+                  }
+                  {
+                    title = "Sonarr";
+                    url = urls.sonarr;
+                    icon = "si:sonarr";
                   }
                   {
                     title = "Radarr";
@@ -425,56 +405,14 @@ let
                     icon = "mdi:magnify";
                   }
                   {
-                    title = "Transmission";
-                    url = urls.transmission;
-                    icon = "si:transmission";
-                  }
-                  {
-                    title = "Deluge";
-                    url = "http://${hostIP}:8112";
-                    icon = "si:deluge";
-                  }
-                  {
-                    title = "Podgrab";
-                    url = "http://${hostIP}:8081";
-                    icon = "mdi:podcast";
+                    title = "qBittorrent";
+                    url = urls.qbittorrent;
+                    icon = "si:qbittorrent";
                   }
                   {
                     title = "Koito";
                     url = "http://${hostIP}:4110";
                     icon = "mdi:account-music";
-                  }
-                ];
-              }
-              {
-                type = "monitor";
-                title = "Utilities & Personal";
-                cache = "30s";
-                sites = [
-                  {
-                    title = "Grocy";
-                    url = "http://192.168.68.95";
-                    icon = "mdi:food-apple";
-                  }
-                  {
-                    title = "Teslamate";
-                    url = "http://192.168.68.54:3000";
-                    icon = "si:tesla";
-                  }
-                  {
-                    title = "PairDrop";
-                    url = "http://192.168.68.100:3000";
-                    icon = "mdi:share";
-                  }
-                  {
-                    title = "Gramps Web";
-                    url = "http://${hostIP}:30179";
-                    icon = "mdi:family-tree";
-                  }
-                  {
-                    title = "Syncthing";
-                    url = "http://${hostIP}:20978";
-                    icon = "si:syncthing";
                   }
                 ];
               }

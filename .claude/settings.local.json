@@ -23,7 +23,12 @@
       "Bash(sudo find:*)",
       "Bash(sudo ls:*)",
       "Bash(systemctl show:*)",
-      "Bash(cat:*)"
+      "Bash(cat:*)",
+      "WebFetch(domain:search.nixos.org)",
+      "Bash(nixos-option:*)",
+      "Bash(groups:*)",
+      "Bash(sudo systemctl restart:*)",
+      "Bash(zfs get:*)"
     ],
     "deny": []
   },

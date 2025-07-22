@@ -6,6 +6,7 @@
 # - Dual Glance dashboards:
 #   - External: https://freemans.house (via Cloudflare tunnel)
 #   - Internal: http://nas (via nginx on port 80)
+# - Container services (see containers.nix)
 #
 # All services are accessible both internally and via Cloudflare tunnel
 # with appropriate URL routing based on access method.
@@ -16,6 +17,7 @@ let
   ports = {
     # Media services
     jellyfin = 8096;
+    jellyseerr = 5055;
     navidrome = 4533;
     
     # *arr stack
@@ -25,7 +27,7 @@ let
     bazarr = 6767;
     
     # Download
-    transmission = 9091;
+    qbittorrent = 8090;
     
     # Dashboards
     glance = 8080;          # External access via Cloudflare
@@ -71,6 +73,12 @@ in
     openFirewall = true;
   };
   
+  services.jellyseerr = {
+    enable = true;
+    openFirewall = true;
+    port = ports.jellyseerr;
+  };
+  
   services.navidrome = {
     enable = true;
     openFirewall = true;
@@ -101,16 +109,40 @@ in
     openFirewall = true;
   };
   
-  # Download client
-  services.transmission = {
-    enable = true;
-    openFirewall = true;
-    settings = {
-      rpc-whitelist-enabled = false;
-      download-dir = "/valhalla/downloads";
-      incomplete-dir = "/valhalla/downloads/.incomplete";
+  # Download client - qBittorrent Enhanced
+  systemd.services.qbittorrent = {
+    description = "qBittorrent-Enhanced-nox service";
+    after = [ "network.target" ];
+    wantedBy = [ "multi-user.target" ];
+    
+    serviceConfig = {
+      Type = "simple";
+      User = "qbittorrent";
+      Group = "qbittorrent";
+      ExecStart = "${pkgs.qbittorrent-enhanced-nox}/bin/qbittorrent-nox --webui-port=${toString ports.qbittorrent} --profile=/var/lib/qbittorrent";
+      Restart = "on-failure";
+      
+      # Security hardening
+      PrivateTmp = true;
+      ProtectSystem = "strict";
+      ReadWritePaths = [ "/var/lib/qbittorrent" "/valhalla/downloads" ];
     };
   };
+
+  # Create user and group for qBittorrent
+  users.users.qbittorrent = {
+    isSystemUser = true;
+    group = "qbittorrent";
+    home = "/var/lib/qbittorrent";
+    createHome = true;
+  };
+  users.groups.qbittorrent = {};
+  
+  # Create media group for shared access
+  users.groups.media = {
+    members = [ "jellyfin" "sonarr" "radarr" "bazarr" "qbittorrent" "navidrome" ];
+  };
+  
   
   # Dashboard configuration - External instance (via Cloudflare)
   services.glance = {
@@ -174,8 +206,8 @@ EOF
     '';
   };
   
-  # Open firewall for HTTP
-  networking.firewall.allowedTCPPorts = [ 80 ];
+  # Open firewall for HTTP and qBittorrent
+  networking.firewall.allowedTCPPorts = [ 80 ports.qbittorrent ];
   
   # Cloudflare Tunnel
   services.cloudflared = {
@@ -188,29 +220,26 @@ EOF
         ingress = {
           # Media services
           "jellyfin.freemans.house" = "http://localhost:${toString ports.jellyfin}";
+          "requests.freemans.house" = "http://localhost:${toString ports.jellyseerr}";
           "music.freemans.house" = "http://localhost:${toString ports.navidrome}";  # Navidrome
-          
-          # *arr services
-          "sonarr.freemans.house" = "http://localhost:${toString ports.sonarr}";
-          "radarr.freemans.house" = "http://localhost:${toString ports.radarr}";
-          "prowlarr.freemans.house" = "http://localhost:${toString ports.prowlarr}";
-          "bazarr.freemans.house" = "http://localhost:${toString ports.bazarr}";
-          "transmission.freemans.house" = "http://localhost:${toString ports.transmission}";
           
           # Dashboard
           "freemans.house" = "http://localhost:${toString ports.glance}";
           "nas.freemans.house" = "http://localhost:${toString ports.glance}";
+          
+          # Music tools
+          "koito.freemans.house" = "http://localhost:4110";
         };
       };
     };
   };
   
-  # Ensure media directories exist
+  # Ensure media directories exist with proper permissions
   systemd.tmpfiles.rules = [
-    "d /valhalla/media 0755 jellyfin jellyfin"
-    "d /valhalla/media/movies 0755 jellyfin jellyfin"
-    "d /valhalla/media/tv 0755 jellyfin jellyfin"
-    "d /valhalla/media/music 0755 navidrome navidrome"
-    "d /valhalla/downloads 0755 transmission transmission"
+    "d /valhalla 0755 root root"
+    "d /valhalla/media 0775 root media"
+    "d /valhalla/downloads 0775 root media"
+    "Z /valhalla/media - root media"
+    "Z /valhalla/downloads - root media"
   ];
 }

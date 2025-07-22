@@ -8,6 +8,7 @@
   imports = [
     ./hardware-configuration.nix
     ./services.nix
+    ./containers.nix
   ];
 
   nixpkgs.config.allowUnfree = true;
@@ -29,6 +30,7 @@
       git
       neovim
       tree
+      unzip
     ];
     shell = pkgs.zsh;
   };
