@@ -4,6 +4,7 @@
 {
   # Development tools via Homebrew
   homebrew.brews = [
+    "arp-scan"
     "git-filter-repo"
     "gh"
     "libyaml"
