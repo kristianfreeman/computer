@@ -15,7 +15,15 @@
       "Bash(brew uninstall:*)",
       "Bash(nix flake update:*)",
       "Bash(brew install:*)",
-      "Bash(brew search:*)"
+      "Bash(brew search:*)",
+      "mcp__context7__resolve-library-id",
+      "mcp__context7__get-library-docs",
+      "Bash(nix-instantiate:*)",
+      "WebFetch(domain:raw.githubusercontent.com)",
+      "Bash(sudo find:*)",
+      "Bash(sudo ls:*)",
+      "Bash(systemctl show:*)",
+      "Bash(cat:*)"
     ],
     "deny": []
   },

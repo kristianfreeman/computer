@@ -1,4 +1,37 @@
+# NAS Services Configuration
+# 
+# This module configures all services for the NAS, including:
+# - Media services (Jellyfin, Navidrome)
+# - *arr stack for media management
+# - Dual Glance dashboards:
+#   - External: https://freemans.house (via Cloudflare tunnel)
+#   - Internal: http://nas (via nginx on port 80)
+#
+# All services are accessible both internally and via Cloudflare tunnel
+# with appropriate URL routing based on access method.
+
 { config, lib, pkgs, ... }:
+let
+  # Central port configuration for all services
+  ports = {
+    # Media services
+    jellyfin = 8096;
+    navidrome = 4533;
+    
+    # *arr stack
+    sonarr = 8989;
+    radarr = 7878;
+    prowlarr = 9696;
+    bazarr = 6767;
+    
+    # Download
+    transmission = 9091;
+    
+    # Dashboards
+    glance = 8080;          # External access via Cloudflare
+    glanceInternal = 8081;  # Internal access via nginx
+  };
+in
 {
   # ZFS maintenance
   services.zfs.autoScrub.enable = true;
@@ -79,16 +112,70 @@
     };
   };
   
-  # Dashboard (keeping your existing Glance)
+  # Dashboard configuration - External instance (via Cloudflare)
   services.glance = {
     enable = true;
     openFirewall = true;
-    settings = {
+    settings = let
+      glanceConfig = import ./glance-config.nix {
+        inherit lib pkgs ports;
+        urlStyle = "external";
+      };
+    in glanceConfig // {
       server = {
         host = "0.0.0.0";
+        port = ports.glance;
       };
     };
   };
+  
+  # Dashboard configuration - Internal instance (for local/Tailscale)
+  services.nginx = {
+    enable = true;
+    virtualHosts.${config.networking.hostName} = {
+      listen = [ { addr = "0.0.0.0"; port = 80; } ];
+      locations."/" = {
+        proxyPass = "http://127.0.0.1:${toString ports.glanceInternal}";
+        proxyWebsockets = true;
+      };
+    };
+  };
+  
+  systemd.services.glance-internal = let
+    glanceConfigInternal = import ./glance-config.nix {
+      inherit lib pkgs ports;
+      urlStyle = "internal";
+      hostIP = config.networking.hostName;
+    };
+  in {
+    description = "Glance Dashboard (Internal)";
+    after = [ "network.target" ];
+    wantedBy = [ "multi-user.target" ];
+    
+    serviceConfig = {
+      Type = "simple";
+      DynamicUser = true;
+      StateDirectory = "glance-internal";
+      WorkingDirectory = "/var/lib/glance-internal";
+      ExecStart = "${pkgs.glance}/bin/glance --config /var/lib/glance-internal/glance.yml";
+      Restart = "on-failure";
+      RestartSec = 10;
+    };
+    
+    preStart = ''
+      cat > /var/lib/glance-internal/glance.yml <<'EOF'
+${lib.generators.toYAML {} (glanceConfigInternal // {
+  server = {
+    host = "127.0.0.1";
+    port = ports.glanceInternal;
+  };
+})}
+EOF
+    '';
+  };
+  
+  # Open firewall for HTTP
+  networking.firewall.allowedTCPPorts = [ 80 ];
   
   # Cloudflare Tunnel
   services.cloudflared = {
@@ -100,19 +187,19 @@
         
         ingress = {
           # Media services
-          "jellyfin.freemans.house" = "http://localhost:8096";
-          "music.freemans.house" = "http://localhost:4533";  # Navidrome
+          "jellyfin.freemans.house" = "http://localhost:${toString ports.jellyfin}";
+          "music.freemans.house" = "http://localhost:${toString ports.navidrome}";  # Navidrome
           
           # *arr services
-          "sonarr.freemans.house" = "http://localhost:8989";
-          "radarr.freemans.house" = "http://localhost:7878";
-          "prowlarr.freemans.house" = "http://localhost:9696";
-          "bazarr.freemans.house" = "http://localhost:6767";
-          "transmission.freemans.house" = "http://localhost:9091";
+          "sonarr.freemans.house" = "http://localhost:${toString ports.sonarr}";
+          "radarr.freemans.house" = "http://localhost:${toString ports.radarr}";
+          "prowlarr.freemans.house" = "http://localhost:${toString ports.prowlarr}";
+          "bazarr.freemans.house" = "http://localhost:${toString ports.bazarr}";
+          "transmission.freemans.house" = "http://localhost:${toString ports.transmission}";
           
           # Dashboard
-          "freemans.house" = "http://localhost:8080";  # Glance
-          "nas.freemans.house" = "http://localhost:8080";  # Glance
+          "freemans.house" = "http://localhost:${toString ports.glance}";
+          "nas.freemans.house" = "http://localhost:${toString ports.glance}";
         };
       };
     };
