@@ -25,7 +25,7 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  # networking.hostName = "nixos"; # Define your hostname.
+  networking.hostName = "nas"; # Define your hostname.
   networking.hostId = "db5d236d";
   networking.networkmanager.enable = true;  # Easiest to use and most distros use this by default.
 
@@ -46,9 +46,6 @@
 
   # Enable the X11 windowing system.
   # services.xserver.enable = true;
-
-
-  
 
   # Configure keymap in X11
   # services.xserver.xkb.layout = "us";
@@ -74,10 +71,13 @@
     extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
     packages = with pkgs; [
       git
-      neovim      
+      neovim
       tree
     ];
+    shell = pkgs.zsh;
   };
+
+  programs.zsh.enable = true;
 
   # programs.firefox.enable = true;
 

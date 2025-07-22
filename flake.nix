@@ -157,7 +157,7 @@
     # Expose the package set, including overlays, for convenience.
     darwinPackages = self.darwinConfigurations.bilbo.pkgs;
 
-    nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
+    nixosConfigurations.nas = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       modules = [
         ({ config, pkgs, ... }: {
