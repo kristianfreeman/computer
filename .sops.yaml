@@ -1,7 +1,9 @@
 keys:
   - &admin age13gn4j4yg8nk22x5yef2vwtcdmr3rzavsr09m0hkw662tdvc7rg4qrnf3el
+  - &nas age1wk23wp7cg36nn0xnss5ls2lvqpnu2jwnwk8meuhvdgrsdw78dcwqymmk6n
 creation_rules:
   - path_regex: secrets/[^/]+\.yaml$
     key_groups:
     - age:
       - *admin
+      - *nas

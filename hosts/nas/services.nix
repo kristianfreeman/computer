@@ -86,7 +86,6 @@
     settings = {
       server = {
         host = "0.0.0.0";
-        port = 80;
       };
     };
   };
@@ -112,7 +111,8 @@
           "transmission.freemans.house" = "http://localhost:9091";
           
           # Dashboard
-          "nas.freemans.house" = "http://localhost:80";  # Glance
+          "freemans.house" = "http://localhost:8080";  # Glance
+          "nas.freemans.house" = "http://localhost:8080";  # Glance
         };
       };
     };

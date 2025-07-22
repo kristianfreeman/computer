@@ -47,7 +47,6 @@
     age.sshKeyPaths = [ "/etc/ssh/ssh_host_ed25519_key" ];
     secrets = {
       cloudflare_tunnel_credentials = {
-        owner = "cloudflared";
         restartUnits = [ "cloudflared-tunnel-nas-tunnel.service" ];
       };
     };
