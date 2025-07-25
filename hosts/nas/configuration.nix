@@ -9,6 +9,8 @@
     ./hardware-configuration.nix
     ./services.nix
     ./containers.nix
+    ./samba.nix
+    ./samba-users.nix
   ];
 
   nixpkgs.config.allowUnfree = true;
@@ -25,9 +27,10 @@
   # User config 
   users.users.kristian = {
     isNormalUser = true;
-    extraGroups = [ "wheel" ];
+    extraGroups = [ "wheel" "media" ];
     packages = with pkgs; [
       git
+      iproute2
       neovim
       tree
       unzip
