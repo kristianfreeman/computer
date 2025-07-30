@@ -41,6 +41,7 @@
     pkgs.caddy
     pkgs.cloc
     pkgs.cmake
+    pkgs.php84Packages.composer
     pkgs.ffmpeg
     pkgs.fswatch
     pkgs.gh
@@ -50,13 +51,21 @@
     pkgs.hledger-ui
     pkgs.hledger-web
     pkgs.hugo
+    pkgs.intelephense
     pkgs.mpv
     pkgs.neofetch
     pkgs.nodePackages.npm-check-updates
     pkgs.pandoc
+    pkgs.php84
     pkgs.pnpm
     pkgs.pipx
     pkgs.rclone
     pkgs.solana-cli
   ];
+
+  # Composer configuration
+  environment.variables = {
+    COMPOSER_HOME = "$HOME/.composer";
+    COMPOSER_CACHE_DIR = "$HOME/.cache/composer";
+  };
 }

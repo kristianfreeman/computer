@@ -20,6 +20,6 @@
   environment.systemPackages = [
     pkgs.ffmpeg
     pkgs.imagemagick
-    pkgs.stig
+    pkgs.streamrip
   ];
 }

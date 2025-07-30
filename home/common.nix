@@ -198,7 +198,7 @@ in
 
   programs.zsh = {
     enable = true;
-    initExtra = "source ${./zsh/includes.zsh}";  # Assumes zsh config stored outside this file.
+    initContent = "source ${./zsh/includes.zsh}";  # Assumes zsh config stored outside this file.
     shellAliases = {
     };
     oh-my-zsh = {

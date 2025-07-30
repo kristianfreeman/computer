@@ -12,7 +12,7 @@
   # Common Homebrew configuration
   homebrew = {
     enable = true;
-    onActivation.cleanup = "uninstall";
+    onActivation.cleanup = "zap";
 
     # Common brews across all macs (can be overridden in host-specific configs)
     brews = [

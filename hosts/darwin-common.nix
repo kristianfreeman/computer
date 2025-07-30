@@ -2,7 +2,7 @@
 { config, pkgs, ... }:
 
 {
-  nix.enable = false;
+  # nix.enable = false;
   nix.settings.experimental-features = "nix-command flakes";
   nix.extraOptions = ''
     experimental-features = flakes nix-command
@@ -55,7 +55,7 @@
 
   # Common homebrew shell initialization
   home-manager.users.kristian.programs.zsh = {
-    initExtra = ''
+    initContent = ''
       eval "$(/opt/homebrew/bin/brew shellenv)"
     '';
   };
