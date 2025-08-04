@@ -73,22 +73,18 @@
         "write list" = "@smbusers";
       };
       
-      # Time Machine backup share
-      timemachine = {
-        path = "/valhalla/timemachine";
+      # Backup share for Time Machine
+      backups = {
+        path = "/valhalla/backups";
         browseable = "yes";
         "read only" = "no";
         "guest ok" = "no";
-        "create mask" = "0600";
-        "directory mask" = "0700";
-        comment = "Time Machine Backups";
+        "create mask" = "0664";
+        "directory mask" = "0775";
+        "force group" = "smbusers";
+        comment = "Backups";
         "valid users" = "@smbusers";
-        "fruit:time machine" = "yes";
-        "fruit:time machine max size" = "1T";
-        "vfs objects" = "fruit streams_xattr";
-        # Prevent other users from seeing each other's backups
-        "inherit permissions" = "no";
-        "ea support" = "yes";
+        "write list" = "@smbusers";
       };
       
     };
@@ -96,7 +92,7 @@
   
   # Create necessary directories and set permissions
   systemd.tmpfiles.rules = [
-    "d /valhalla/timemachine 0770 root smbusers -"
+    "d /valhalla/backups 0770 kristian smbusers -"
   ];
   
   # Create smbusers group

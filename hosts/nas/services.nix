@@ -32,6 +32,10 @@ let
     # Dashboards
     glance = 8080;          # External access via Cloudflare
     glanceInternal = 8081;  # Internal access via nginx
+    
+    # Git service
+    gitea = 3000;
+    giteaSsh = 2222;  # SSH on 2222 to avoid conflict with host SSH
   };
 in
 {
@@ -107,6 +111,29 @@ in
   services.bazarr = {
     enable = true;
     openFirewall = true;
+  };
+  
+  # Git service - Gitea
+  services.gitea = {
+    enable = true;
+    database = {
+      type = "postgres";
+      passwordFile = pkgs.writeText "gitea-db-password" "";  # Empty password for local postgres
+    };
+    settings = {
+      server = {
+        DOMAIN = "git.freemans.house";
+        ROOT_URL = "https://git.freemans.house/";
+        HTTP_PORT = ports.gitea;
+        SSH_PORT = ports.giteaSsh;
+        SSH_LISTEN_PORT = ports.giteaSsh;
+        DISABLE_SSH = false;
+        START_SSH_SERVER = true;
+      };
+      service = {
+        DISABLE_REGISTRATION = false;  # You can set this to true after creating your account
+      };
+    };
   };
   
   # Download client - qBittorrent Enhanced
@@ -206,8 +233,8 @@ EOF
     '';
   };
   
-  # Open firewall for HTTP and qBittorrent
-  networking.firewall.allowedTCPPorts = [ 80 ports.qbittorrent ];
+  # Open firewall for HTTP, qBittorrent, and Gitea
+  networking.firewall.allowedTCPPorts = [ 80 ports.qbittorrent ports.gitea ports.giteaSsh ];
   
   # Cloudflare Tunnel
   services.cloudflared = {
@@ -229,6 +256,9 @@ EOF
           
           # Music tools
           "koito.freemans.house" = "http://localhost:4110";
+          
+          # Git service
+          "git.freemans.house" = "http://localhost:${toString ports.gitea}";
         };
       };
     };

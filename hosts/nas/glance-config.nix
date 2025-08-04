@@ -10,6 +10,7 @@ let
   bazarrPort = ports.bazarr;
   qbittorrentPort = ports.qbittorrent;
   glancePort = ports.glance;
+  giteaPort = ports.gitea;
   
   # URL generation based on access style
   urls = if urlStyle == "external" then {
@@ -23,6 +24,7 @@ let
     qbittorrent = "https://qbittorrent.freemans.house";
     glance = "https://nas.freemans.house";
     glanceAlt = "https://freemans.house";
+    gitea = "https://git.freemans.house";
   } else {
     jellyfin = "http://${hostIP}:${toString jellyfinPort}/web/";
     jellyseerr = "http://${hostIP}:${toString jellyseerrPort}";
@@ -34,6 +36,7 @@ let
     qbittorrent = "http://${hostIP}:${toString qbittorrentPort}";
     glance = "http://${hostIP}";
     glanceAlt = "http://${hostIP}";
+    gitea = "http://${hostIP}:${toString giteaPort}";
   };
   
   # Build infrastructure monitor widget (only for internal)
@@ -52,6 +55,11 @@ let
         url = "https://192.168.68.222:8006";
         icon = "mdi:server";
         allow-insecure = true;
+      }
+      {
+        title = "Gitea";
+        url = urls.gitea;
+        icon = "si:gitea";
       }
     ];
   };
@@ -224,6 +232,11 @@ let
                         url = "https://192.168.68.70";
                         icon = "si:n8n";
                       }
+                      {
+                        title = "Gitea";
+                        url = urls.gitea;
+                        icon = "si:gitea";
+                      }
                     ];
                   }
                 ] ++ [
@@ -338,6 +351,11 @@ let
                     url = "https://192.168.68.70";
                     icon = "si:n8n";
                     allow-insecure = true;
+                  }
+                  {
+                    title = "Gitea";
+                    url = urls.gitea;
+                    icon = "si:gitea";
                   }
                 ];
               }

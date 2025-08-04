@@ -2,15 +2,11 @@
 # 
 # This module manages containerized services using podman/docker
 # Currently includes:
-# - Koito: MusicBrainz scrobbler
-# - PostgreSQL: Database for Koito
+# - Koito: MusicBrainz scrobbler  
+# - PostgreSQL: Database for Koito (passwordless for simplicity)
 
 { config, lib, pkgs, ... }:
 {
-  # Define sops secret for database password
-  sops.secrets.koito_db_password = {
-    restartUnits = [ "podman-koito-db.service" "podman-koito.service" ];
-  };
   # Enable container management
   virtualisation = {
     podman = {
@@ -21,17 +17,15 @@
     oci-containers = {
       backend = "podman";
       containers = {
-        # PostgreSQL database for Koito
+        # PostgreSQL database for Koito - passwordless
         koito-db = {
           image = "postgres:16";
           autoStart = true;
           environment = {
             POSTGRES_DB = "koitodb";
             POSTGRES_USER = "postgres";
+            POSTGRES_HOST_AUTH_METHOD = "trust";  # Allow passwordless connections
           };
-          environmentFiles = [
-            "/run/secrets/koito-db-env"
-          ];
           volumes = [
             "/var/lib/koito/db-data:/var/lib/postgresql/data"
           ];
@@ -48,10 +42,8 @@
           dependsOn = [ "koito-db" ];
           environment = {
             KOITO_ALLOWED_HOSTS = "koito.freemans.house,${config.networking.hostName}:4110,192.168.68.216:4110";
+            KOITO_DATABASE_URL = "postgres://postgres@db:5432/koitodb?sslmode=disable";
           };
-          environmentFiles = [
-            "/run/secrets/koito-env"
-          ];
           ports = [ "4110:4110" ];
           volumes = [
             "/var/lib/koito/koito-data:/etc/koito"
@@ -68,42 +60,24 @@
   systemd.services.create-koito-network = {
     description = "Create koito network for containers";
     after = [ "network.target" ];
-    before = [ "podman-koito-db.service" "podman-koito.service" ];
-    wantedBy = [ "multi-user.target" ];
+    before = [ "podman.service" ];
+    wantedBy = [ "podman.service" "multi-user.target" ];
     serviceConfig = {
       Type = "oneshot";
       RemainAfterExit = true;
-      ExecStart = "${pkgs.bash}/bin/bash -c '${pkgs.podman}/bin/podman network create koito-net || true'";
+      ExecStart = "${pkgs.bash}/bin/bash -c '${pkgs.podman}/bin/podman network exists koito-net || ${pkgs.podman}/bin/podman network create koito-net'";
     };
   };
   
-  # Create environment files for containers
-  systemd.services.koito-env-setup = {
-    description = "Create environment files for Koito containers";
-    after = [ "network.target" ];
-    before = [ "podman-koito-db.service" "podman-koito.service" ];
-    wantedBy = [ "multi-user.target" ];
-    serviceConfig = {
-      Type = "oneshot";
-      RemainAfterExit = true;
-    };
-    script = ''
-      # Ensure secrets directory exists
-      mkdir -p /run/secrets
-      
-      # Create environment file for PostgreSQL
-      cat > /run/secrets/koito-db-env <<EOF
-      POSTGRES_PASSWORD=$(cat ${config.sops.secrets.koito_db_password.path})
-      EOF
-      chmod 600 /run/secrets/koito-db-env
-      
-      # Create environment file for Koito with database URL
-      DB_PASS=$(cat ${config.sops.secrets.koito_db_password.path})
-      cat > /run/secrets/koito-env <<EOF
-      KOITO_DATABASE_URL=postgres://postgres:$DB_PASS@db:5432/koitodb
-      EOF
-      chmod 600 /run/secrets/koito-env
-    '';
+  # Add explicit ordering to container services
+  systemd.services."podman-koito-db" = {
+    after = [ "create-koito-network.service" ];
+    requires = [ "create-koito-network.service" ];
+  };
+  
+  systemd.services."podman-koito" = {
+    after = [ "create-koito-network.service" "podman-koito-db.service" ];
+    requires = [ "create-koito-network.service" ];
   };
   
   # Ensure directories exist with proper permissions
