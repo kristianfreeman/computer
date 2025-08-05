@@ -45,7 +45,9 @@
       "Bash(sudo smbclient:*)",
       "Bash(testparm:*)",
       "Bash(sudo zfs create:*)",
-      "Bash(rm:*)"
+      "Bash(rm:*)",
+      "Bash(ping:*)",
+      "Bash(sudo cat:*)"
     ],
     "deny": []
   },
