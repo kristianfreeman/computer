@@ -12,7 +12,7 @@
   # Common Homebrew configuration
   homebrew = {
     enable = true;
-    onActivation.cleanup = "zap";
+    # onActivation.cleanup = "zap";
 
     # Common brews across all macs (can be overridden in host-specific configs)
     brews = [
@@ -23,16 +23,15 @@
     casks = [ 
       "1password" 
       "caffeine"
-      "flux"
       "font-atkinson-hyperlegible"
       "font-jetbrains-mono-nerd-font"
       "jordanbaird-ice"
       "loom"
       "macwhisper"
       "mochi"
-      "ollama"
       "raycast"
       "recut"
+      "tailscale"
       "the-unarchiver"
     ];
   };
