@@ -45,6 +45,7 @@
     pkgs.ffmpeg
     pkgs.fswatch
     pkgs.gh
+    pkgs.gtypist
     pkgs.helix
     pkgs.heroku
     pkgs.hledger
