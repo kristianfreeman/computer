@@ -54,6 +54,11 @@
     pkgs.hugo
     pkgs.intelephense
     pkgs.mpv
+    (pkgs.python3.withPackages (ps: [ 
+      ps.claude-code-sdk
+      ps.llm 
+      ps.llm-anthropic
+    ]))
     pkgs.neofetch
     pkgs.nodePackages.npm-check-updates
     pkgs.pandoc
