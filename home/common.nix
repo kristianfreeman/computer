@@ -27,7 +27,6 @@ in
     devbox
     gh
     gifsicle
-    helix
     neovim
     nmap
     nodejs
@@ -57,16 +56,6 @@ in
 
   home.file.".config/ghostty" = {
     source = ./ghostty;
-    recursive = true;
-  };
-
-  home.file.".config/helix/config.toml" = {
-    source = ./helix/config.toml;
-    recursive = true;
-  };
-
-  home.file.".config/helix/languages.toml" = {
-    source = ./helix/languages.toml;
     recursive = true;
   };
 
@@ -110,54 +99,6 @@ in
 
   programs.firefox = {
     enable = true;
-    profiles = {
-      default = {
-        id = 0;
-        name = "default";
-        isDefault = true;
-        search = {
-          engines = {
-            "ddg" = {
-              urls = [{
-                template = "https://duckduckgo.com/?q={searchTerms}";
-              }];
-              definedAliases = [ "@ddg" ];
-            };
-          };
-          default = "ddg";
-        };
-        settings = {
-          # Enable vertical tabs
-          "sidebar.verticalTabs" = true;
-          "sidebar.revamp" = true;
-          
-          # Optional: Hide horizontal tabs
-          "browser.tabs.tabmanager.enabled" = false;
-          
-          # Dark theme
-          "extensions.activeThemeID" = "firefox-compact-dark@mozilla.org";
-          "browser.theme.content-theme" = 0;
-          "browser.theme.toolbar-theme" = 0;
-          
-          # Auto-enable extensions
-          "extensions.autoDisableScopes" = 0;
-          "extensions.enabledScopes" = 15;
-          
-          # Allow unsigned extensions (for Nix-installed addons)
-          "xpinstall.signatures.required" = false;
-        };
-        extensions = {
-          packages = with pkgs.nur.repos.rycee.firefox-addons; [
-            darkreader
-            tridactyl
-            ublock-origin
-            onepassword-password-manager
-            sponsorblock
-            enhancer-for-youtube
-          ];
-        };
-      };
-    };
   };
 
   programs.eza = {
