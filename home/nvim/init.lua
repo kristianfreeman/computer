@@ -156,6 +156,22 @@ require("lazy").setup({
   -- Use `opts = {}` to force a plugin to be loaded.
   --
   { "tpope/vim-sleuth" },
+  {
+    "catppuccin/nvim",
+    name = "catppuccin",
+    priority = 1000,
+    config = function()
+      require("catppuccin").setup({
+        flavour = "mocha",
+        background = { light = "latte", dark = "mocha" },
+        transparent_background = false,
+        show_end_of_buffer = false,
+        term_colors = false,
+        no_italic = false,
+      })
+      vim.cmd.colorscheme("catppuccin")
+    end,
+  },
 
   -- Here is a more advanced example where we pass configuration
   -- options to `gitsigns.nvim`. This is equivalent to the following Lua:
@@ -662,18 +678,6 @@ require("lazy").setup({
       --  into multiple repos for maintenance purposes.
       "hrsh7th/cmp-nvim-lsp",
       "hrsh7th/cmp-path",
-
-      {
-        "supermaven-inc/supermaven-nvim",
-        config = function()
-          require("supermaven-nvim").setup({})
-        end,
-      },
-      {
-        "dasupradyumna/midnight.nvim",
-        lazy = false,
-        priority = 1000,
-      },
     },
     config = function()
       -- See `:help cmp`
@@ -753,6 +757,13 @@ require("lazy").setup({
           { name = "supermaven" },
         },
       })
+    end,
+  },
+
+  {
+    "supermaven-inc/supermaven-nvim",
+    config = function()
+      require("supermaven-nvim").setup({})
     end,
   },
 

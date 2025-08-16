@@ -31,7 +31,6 @@
       "mochi"
       "raycast"
       "recut"
-      "tailscale"
       "the-unarchiver"
     ];
   };

@@ -15,8 +15,8 @@ in
     ls = "eza --group-directories-first";
     tree = "eza --group-directories-first --tree";
     switch = if pkgs.stdenv.isDarwin then "sudo darwin-rebuild switch --flake ~/.config/nix" else "sudo nixos-rebuild switch --flake /etc/nixos";
-    vim = "hx";
-    vi = "hx";
+    vi = "nvim";
+    vim = "nvim";
     y = "yazi";
   };
 
