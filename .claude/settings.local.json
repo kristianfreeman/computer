@@ -47,7 +47,9 @@
       "Bash(sudo zfs create:*)",
       "Bash(rm:*)",
       "Bash(ping:*)",
-      "Bash(sudo cat:*)"
+      "Bash(sudo cat:*)",
+      "Bash(system_profiler:*)",
+      "Bash(fc-list:*)"
     ],
     "deny": []
   },
