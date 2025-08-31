@@ -4,6 +4,7 @@
 # Currently includes:
 # - Koito: MusicBrainz scrobbler  
 # - PostgreSQL: Database for Koito (passwordless for simplicity)
+# - Ghost v6: Modern blogging platform with MySQL database
 
 { config, lib, pkgs, ... }:
 {
@@ -52,11 +53,70 @@
             "--network=koito-net"
           ];
         };
+        
+        # Ghost MySQL database
+        ghost-db = {
+          image = "mysql:8";
+          autoStart = true;
+          environment = {
+            MYSQL_ROOT_PASSWORD = "ghostroot123";
+            MYSQL_DATABASE = "ghostdb";
+            MYSQL_USER = "ghostuser";
+            MYSQL_PASSWORD = "ghostpass123";
+          };
+          volumes = [
+            "/var/lib/ghost/mysql-data:/var/lib/mysql"
+          ];
+          extraOptions = [
+            "--network=ghost-net"
+            "--network-alias=ghost-mysql"
+          ];
+        };
+        
+        # Ghost v6 blogging platform
+        ghost = {
+          image = "ghost:5-alpine";  # Using v5 until v6 is stable in Docker Hub
+          autoStart = true;
+          dependsOn = [ "ghost-db" ];
+          environment = {
+            # Core configuration
+            url = "https://blog.freemans.house";
+            NODE_ENV = "production";
+            
+            # Database configuration
+            database__client = "mysql";
+            database__connection__host = "ghost-mysql";
+            database__connection__user = "ghostuser";
+            database__connection__password = "ghostpass123";
+            database__connection__database = "ghostdb";
+            
+            # Mail configuration (update with your SMTP details)
+            mail__transport = "SMTP";
+            mail__options__host = "smtp.gmail.com";
+            mail__options__port = "587";
+            mail__options__secure = "false";
+            mail__options__auth__user = "your-email@gmail.com";
+            mail__options__auth__pass = "your-app-password";
+            
+            # Privacy and security
+            privacy__useUpdateCheck = "false";
+            privacy__useGoogleFonts = "false";
+            privacy__useRpcPing = "false";
+            privacy__useTinybirdAnalytics = "false";
+          };
+          ports = [ "2368:2368" ];
+          volumes = [
+            "/var/lib/ghost/content:/var/lib/ghost/content"
+          ];
+          extraOptions = [
+            "--network=ghost-net"
+          ];
+        };
       };
     };
   };
   
-  # Create network for containers
+  # Create networks for containers
   systemd.services.create-koito-network = {
     description = "Create koito network for containers";
     after = [ "network.target" ];
@@ -66,6 +126,18 @@
       Type = "oneshot";
       RemainAfterExit = true;
       ExecStart = "${pkgs.bash}/bin/bash -c '${pkgs.podman}/bin/podman network exists koito-net || ${pkgs.podman}/bin/podman network create koito-net'";
+    };
+  };
+  
+  systemd.services.create-ghost-network = {
+    description = "Create ghost network for containers";
+    after = [ "network.target" ];
+    before = [ "podman.service" ];
+    wantedBy = [ "podman.service" "multi-user.target" ];
+    serviceConfig = {
+      Type = "oneshot";
+      RemainAfterExit = true;
+      ExecStart = "${pkgs.bash}/bin/bash -c '${pkgs.podman}/bin/podman network exists ghost-net || ${pkgs.podman}/bin/podman network create ghost-net'";
     };
   };
   
@@ -80,13 +152,27 @@
     requires = [ "create-koito-network.service" ];
   };
   
+  # Add explicit ordering to Ghost container services  
+  systemd.services."podman-ghost-db" = {
+    after = [ "create-ghost-network.service" ];
+    requires = [ "create-ghost-network.service" ];
+  };
+  
+  systemd.services."podman-ghost" = {
+    after = [ "create-ghost-network.service" "podman-ghost-db.service" ];
+    requires = [ "create-ghost-network.service" ];
+  };
+  
   # Ensure directories exist with proper permissions
   systemd.tmpfiles.rules = [
     "d /var/lib/koito 0755 root root"
     "d /var/lib/koito/db-data 0755 999 999"  # PostgreSQL UID/GID
     "d /var/lib/koito/koito-data 0755 root root"
+    "d /var/lib/ghost 0755 root root"
+    "d /var/lib/ghost/mysql-data 0755 999 999"  # MySQL UID/GID
+    "d /var/lib/ghost/content 0755 1000 1000"  # Ghost UID/GID
   ];
   
-  # Open firewall for Koito
-  networking.firewall.allowedTCPPorts = [ 4110 ];
+  # Open firewall for Koito and Ghost
+  networking.firewall.allowedTCPPorts = [ 4110 2368 ];
 }

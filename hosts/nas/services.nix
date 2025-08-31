@@ -259,6 +259,9 @@ EOF
           
           # Git service
           "git.freemans.house" = "http://localhost:${toString ports.gitea}";
+          
+          # Blog
+          "blog.freemans.house" = "http://localhost:2368";
         };
       };
     };

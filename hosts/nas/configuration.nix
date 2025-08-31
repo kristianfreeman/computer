@@ -34,11 +34,26 @@
       neovim
       tree
       unzip
+      # Development tools
+      nodejs
+      chromium
+      firefox
     ];
     shell = pkgs.zsh;
   };
 
-  programs.zsh.enable = true;
+  programs.zsh = {
+    enable = true;
+    shellInit = ''
+      export PLAYWRIGHT_BROWSERS_PATH="${pkgs.playwright-driver.browsers}"
+      export PLAYWRIGHT_SKIP_VALIDATE_HOST_REQUIREMENTS="true"
+    '';
+  };
+
+  # Add Playwright driver to system packages
+  environment.systemPackages = with pkgs; [
+    playwright-driver.browsers
+  ];
 
   # Networking
   networking.firewall.allowedTCPPorts = [ 22 ];

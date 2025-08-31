@@ -50,6 +50,8 @@
       "Bash(sudo cat:*)",
       "Bash(system_profiler:*)",
       "Bash(fc-list:*)"
+      "WebFetch(domain:ghost.org)",
+      "WebFetch(domain:docs.ghost.org)"
     ],
     "deny": []
   },
