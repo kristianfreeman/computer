@@ -32,9 +32,6 @@ vim.schedule(function()
   vim.opt.clipboard = "unnamedplus"
 end)
 
--- Folding
-vim.opt.foldmethod = "marker"
-
 -- Enforce tabs as 2 spaces
 vim.opt.expandtab = true
 vim.opt.shiftwidth = 2
@@ -162,7 +159,7 @@ require("lazy").setup({
     priority = 1000,
     config = function()
       require("catppuccin").setup({
-        flavour = "mocha",
+        flavour = "latte",
         background = { light = "latte", dark = "mocha" },
         transparent_background = false,
         show_end_of_buffer = false,

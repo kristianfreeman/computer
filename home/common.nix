@@ -11,7 +11,7 @@ in
 
   home.shellAliases = {
     ao = "exec $SHELL -l";
-    cat = "bat --theme catppuccin-mocha";
+    cat = "bat --theme catppuccin-latte";
     ls = "eza --group-directories-first";
     tree = "eza --group-directories-first --tree";
     switch = if pkgs.stdenv.isDarwin then "sudo darwin-rebuild switch --flake ~/.config/nix" else "sudo nixos-rebuild switch --flake /etc/nixos";
@@ -97,10 +97,6 @@ in
   programs.jq.enable = true;
   programs.zoxide.enable = true;
 
-  programs.firefox = {
-    enable = true;
-  };
-
   programs.eza = {
     enable = true;
     icons = "auto";
@@ -126,14 +122,14 @@ in
   programs.yazi = {
     enable = true;
     settings = {
-      theme = "catppuccin-mocha";
+      theme = "catppuccin-latte";
     };
   };
 
   programs.zellij = {
     enable = true;
     settings = {
-      theme = "catppuccin-mocha";
+      theme = "catppuccin-latte";
     };
   };
 

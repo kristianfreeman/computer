@@ -6,7 +6,7 @@ macos-option-as-alt = true
 macos-titlebar-style = transparent
 
 font-family = "Berkeley Mono"
-theme = dark:catppuccin-mocha,light:catppuccin-latte
+theme = dark:"Catppuccin Mocha",light:"Catppuccin Latte"
 
 window-padding-x = 3
 window-padding-y = 3
