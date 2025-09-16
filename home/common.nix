@@ -11,7 +11,7 @@ in
 
   home.shellAliases = {
     ao = "exec $SHELL -l";
-    cat = "bat --theme catppuccin-latte";
+    cat = "bat --theme gruvbox-light";
     ls = "eza --group-directories-first";
     tree = "eza --group-directories-first --tree";
     switch = if pkgs.stdenv.isDarwin then "sudo darwin-rebuild switch --flake ~/.config/nix" else "sudo nixos-rebuild switch --flake /etc/nixos";
@@ -140,7 +140,6 @@ in
     };
     oh-my-zsh = {
       enable = true;
-      theme = "sunaku";
       plugins = [
         "fzf"
         "starship"
