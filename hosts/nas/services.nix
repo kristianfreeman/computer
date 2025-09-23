@@ -19,6 +19,7 @@ let
     jellyfin = 8096;
     jellyseerr = 5055;
     navidrome = 4533;
+    bonob = 4534;           # Sonos integration for Navidrome
     
     # *arr stack
     sonarr = 8989;
@@ -90,6 +91,27 @@ in
       Address = "0.0.0.0";
       MusicFolder = "/valhalla/media/music";
     };
+  };
+  
+  # Bonob - Sonos integration for Navidrome (Docker container)
+  virtualisation.oci-containers.containers.bonob = {
+    image = "simojenki/bonob:latest";
+    ports = [ "${toString ports.bonob}:4534" ];
+    environment = {
+      BNB_PORT = "4534";
+      BNB_URL = "http://192.168.68.85:${toString ports.bonob}";  # Internal URL for Sonos devices
+      BNB_SECRET = "changeme";  # Change this to something secure
+      BNB_SONOS_AUTO_REGISTER = "true";
+      BNB_SONOS_DEVICE_DISCOVERY = "true";
+      BNB_SONOS_SEED_HOST = "192.168.68.93";  # Sonos device for discovery
+      BNB_SONOS_SERVICE_NAME = "Freemans Music";
+      BNB_SONOS_SERVICE_ID = "246";
+      BNB_SUBSONIC_URL = "http://host.docker.internal:${toString ports.navidrome}";
+      BNB_LOG_LEVEL = "info";
+      BNB_SCROBBLE_TRACKS = "true";
+      BNB_REPORT_NOW_PLAYING = "true";
+    };
+    extraOptions = [ "--network=host" ];  # Required for Sonos device discovery
   };
   
   # *arr services
@@ -233,8 +255,8 @@ EOF
     '';
   };
   
-  # Open firewall for HTTP, qBittorrent, and Gitea
-  networking.firewall.allowedTCPPorts = [ 80 ports.qbittorrent ports.gitea ports.giteaSsh ];
+  # Open firewall for HTTP, qBittorrent, Gitea, and Bonob
+  networking.firewall.allowedTCPPorts = [ 80 ports.qbittorrent ports.gitea ports.giteaSsh ports.bonob ];
   
   # Cloudflare Tunnel
   services.cloudflared = {

@@ -4,6 +4,7 @@ let
   jellyfinPort = ports.jellyfin;
   jellyseerrPort = ports.jellyseerr;
   navidromePort = ports.navidrome;
+  bonobPort = ports.bonob;
   sonarrPort = ports.sonarr;
   radarrPort = ports.radarr;
   prowlarrPort = ports.prowlarr;
@@ -29,6 +30,7 @@ let
     jellyfin = "http://${hostIP}:${toString jellyfinPort}/web/";
     jellyseerr = "http://${hostIP}:${toString jellyseerrPort}";
     navidrome = "http://${hostIP}:${toString navidromePort}";
+    bonob = "http://${hostIP}:${toString bonobPort}";
     sonarr = "http://${hostIP}:${toString sonarrPort}";
     radarr = "http://${hostIP}:${toString radarrPort}";
     prowlarr = "http://${hostIP}:${toString prowlarrPort}";
@@ -160,6 +162,11 @@ let
                   }
                 ] ++ lib.optionals (urlStyle == "internal") [
                   {
+                    title = "Bonob (Sonos)";
+                    url = urls.bonob;
+                    icon = "mdi:speaker";
+                  }
+                  {
                     title = "Sonarr";
                     url = urls.sonarr;
                     icon = "si:sonarr";
@@ -259,6 +266,11 @@ let
                         icon = "mdi:music";
                       }
                     ] ++ lib.optionals (urlStyle == "internal") [
+                      {
+                        title = "Bonob (Sonos)";
+                        url = urls.bonob;
+                        icon = "mdi:speaker";
+                      }
                       {
                         title = "Sonarr";
                         url = urls.sonarr;
@@ -401,6 +413,11 @@ let
                     title = "Navidrome";
                     url = urls.navidrome;
                     icon = "mdi:music";
+                  }
+                  {
+                    title = "Bonob (Sonos)";
+                    url = urls.bonob;
+                    icon = "mdi:speaker";
                   }
                   {
                     title = "Sonarr";
