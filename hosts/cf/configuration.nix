@@ -10,7 +10,11 @@ in
   ];
 
   homebrew.brews = [
+    "cloudflared"
     "vips"
   ];
-  homebrew.casks = [];
+
+  homebrew.casks = [
+    "spotify"
+  ];
 }

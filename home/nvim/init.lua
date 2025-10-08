@@ -159,7 +159,7 @@ require("lazy").setup({
     priority = 1000,
     config = function()
       require("catppuccin").setup({
-        flavour = "latte",
+        flavour = "mocha",
         background = { light = "latte", dark = "mocha" },
         transparent_background = false,
         show_end_of_buffer = false,
