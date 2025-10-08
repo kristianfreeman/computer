@@ -59,10 +59,10 @@ in
     recursive = true;
   };
 
-  home.file.".config/nvim" = {
-    source = ./nvim;
-    recursive = true;
-  };
+  # home.file.".config/nvim" = {
+  #   source = ./nvim;
+  #   recursive = true;
+  # };
 
   home.file.".editorconfig" = {
     source = ./editorconfig;

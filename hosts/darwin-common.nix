@@ -50,7 +50,7 @@
     };
 
     # Turn on stage manager
-    WindowManager.GloballyEnabled = true;
+    #WindowManager.GloballyEnabled = true;
   };
 
   # Common homebrew shell initialization
